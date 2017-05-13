@@ -1204,3 +1204,116 @@ h2.price {
     left: 0;
     opacity:0 !important;
 }
+
+
+/* CATEGORY */
+
+
+/*sorter*/
+.my_sorter__form{
+    float: left;
+    height: 20px;
+    line-height: 1;
+    padding-top: 5px;
+    width: 240px;
+}
+.my_sorter__form label{
+    border: none;
+    background: transparent;
+}
+
+.my_sorter__form-control{
+    background: transparent;
+    color: #666;
+
+}
+
+
+/*buttons sorter*/
+.my_sorter__group{
+    float: right;
+}
+
+.my_sorter__group button{
+    background-color: transparent;
+    border: none;
+}
+
+.my_sorter__button{
+    cursor: default;
+    white-space: nowrap;
+    font-size: 2em;
+}
+.my_sorter__button:hover{
+    color: #fee900;
+    transition: all 0.1s;
+    cursor: pointer;
+}
+.active .my_sorter__button {
+    color: #fee900;
+}
+
+
+.my_caption__item{
+    padding: .5em 0;
+    display: block;
+    font: 400 13px/20px "Roboto",sans-serif;
+    color: #333;
+    text-transform: uppercase;
+    outline: none;
+    text-decoration: none;
+    text-align: center;
+}
+
+/*price*/
+
+.my_price__item {
+    overflow: hidden;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #3a3a3a;
+    font: normal 21px/30px "Roboto",sans-serif;
+    position: relative;
+    text-align: center;
+}
+
+.my_product-line__data{
+    margin-top: 1%;
+    width: 100%;
+}
+.my_product-line__data span{
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 12px;
+}
+
+/* how Many Products Show*/
+
+.my_howManyProductsShow__block{
+    float: right !important;
+    width: 100%;
+    color: #666;
+}
+
+.my_howManyProductsShow__items{
+    width:auto !important;
+
+    margin-left: 5px;
+    outline: none;
+    color: #333;
+    vertical-align: middle;
+    font: 14px/16px "Roboto",sans-serif;
+
+}
+
+.my_howManyProductsShow__textElements{
+    border: none;
+    background-color: transparent;
+}
+
+.my_howManyProductsShow__elements{
+    width: auto;
+
+}

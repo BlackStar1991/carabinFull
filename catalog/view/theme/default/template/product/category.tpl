@@ -54,45 +54,50 @@
       <?php } ?>
       <?php if ($products) { ?>
       <div class="row">
-        <div class="col-md-2 col-sm-6 hidden-xs">
-          <div class="btn-group btn-group-sm">
-            <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_list; ?>"><i class="fa fa-th-list"></i></button>
-            <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_grid; ?>"><i class="fa fa-th"></i></button>
+
+
+          <!--Sorter Group-->
+          <div class="col-xs-12 col-sm-6">
+              <div class="form-group input-group input-group-sm my_sorter__form">
+                  <label class="input-group-addon" for="input-sort"><?php echo $text_sort; ?></label>
+                  <select id="input-sort" class="form-control my_sorter__form-control" onchange="location = this.value;">
+                      <?php foreach ($sorts as $sorts) { ?>
+                          <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
+                              <option value="<?php echo $sorts['href']; ?>" selected="selected"><?php echo $sorts['text']; ?></option>
+                          <?php } else { ?>
+                              <option value="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></option>
+                          <?php } ?>
+                      <?php } ?>
+                  </select>
+              </div>
           </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="form-group">
-            <a href="<?php echo $compare; ?>" id="compare-total" class="btn btn-link"><?php echo $text_compare; ?></a>
+
+
+
+        <!--Compare items-->
+<!--        <div class="col-md-3 col-sm-6">-->
+<!--          <div class="form-group">-->
+<!--            <a href="--><?php //echo $compare; ?><!--" id="compare-total" class="btn btn-link">--><?php //echo $text_compare; ?><!--</a>-->
+<!--          </div>-->
+<!--        </div>-->
+
+
+
+
+
+
+
+
+          <!--Buttons sorter-->
+          <div class="col-sm-6 hidden-xs">
+              <div class="btn-group btn-group-sm my_sorter__group">
+                  <button type="button" id="list-view" class="btn btn-default " data-toggle="tooltip" title="<?php echo $button_list; ?>"><i class="fa fa-th-list my_sorter__button"></i></button>
+                  <button type="button" id="grid-view" class="btn btn-default " data-toggle="tooltip" title="<?php echo $button_grid; ?>"><i class="fa fa-th my_sorter__button"></i></button>
+              </div>
           </div>
-        </div>
-        <div class="col-md-4 col-xs-6">
-          <div class="form-group input-group input-group-sm">
-            <label class="input-group-addon" for="input-sort"><?php echo $text_sort; ?></label>
-            <select id="input-sort" class="form-control" onchange="location = this.value;">
-              <?php foreach ($sorts as $sorts) { ?>
-              <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
-              <option value="<?php echo $sorts['href']; ?>" selected="selected"><?php echo $sorts['text']; ?></option>
-              <?php } else { ?>
-              <option value="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></option>
-              <?php } ?>
-              <?php } ?>
-            </select>
-          </div>
-        </div>
-        <div class="col-md-3 col-xs-6">
-          <div class="form-group input-group input-group-sm">
-            <label class="input-group-addon" for="input-limit"><?php echo $text_limit; ?></label>
-            <select id="input-limit" class="form-control" onchange="location = this.value;">
-              <?php foreach ($limits as $limits) { ?>
-              <?php if ($limits['value'] == $limit) { ?>
-              <option value="<?php echo $limits['href']; ?>" selected="selected"><?php echo $limits['text']; ?></option>
-              <?php } else { ?>
-              <option value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
-              <?php } ?>
-              <?php } ?>
-            </select>
-          </div>
-        </div>
+
+
+
       </div>
       <div class="row">
         <?php foreach ($products as $product) { ?>
@@ -101,10 +106,12 @@
             <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
             <div>
               <div class="caption">
-                <h4><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
-                <p><?php echo $product['description']; ?></p>
+                <h4><a class="my_caption__item" href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
+
+         <!--       <p><?php echo $product['description']; ?></p>  -->
+
                 <?php if ($product['price']) { ?>
-                <p class="price">
+                <p class="price my_price__item">
                   <?php if (!$product['special']) { ?>
                   <?php echo $product['price']; ?>
                   <?php } else { ?>
@@ -115,6 +122,12 @@
                   <?php } ?>
                 </p>
                 <?php } ?>
+
+<div class="my_product-line__data"><!-- вставить модуль -->
+    <span>В наличии</span>
+</div>
+
+
                 <?php if ($product['rating']) { ?>
                 <div class="rating">
                   <?php for ($i = 1; $i <= 5; $i++) { ?>
@@ -127,23 +140,68 @@
                 </div>
                 <?php } ?>
               </div>
-              <div class="button-group">
+
+
+    <!--          <div class="button-group">
                 <button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>
                 <button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>
                 <button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>
               </div>
+    -->
+
             </div>
           </div>
         </div>
         <?php } ?>
+
+
+
+          <!-- Navigation on items -->
+          <div class="col-xs-6">
+              <p> передвижение по товарам</p>
+          </div>
+
+          <!--   How many items show  -->
+          <div class="col-xs-6">
+              <div class="form-group input-group input-group-sm  my_howManyProductsShow__block">
+                  <label class="input-group-addon my_howManyProductsShow__textElements" for="input-limit"><?php echo $text_limit; ?></label>
+                  <select id="input-limit" class="form-control my_howManyProductsShow__items" onchange="location = this.value;">
+                      <?php foreach ($limits as $limits) { ?>
+                          <?php if ($limits['value'] == $limit) { ?>
+                              <option class="my_howManyProductsShow__elements" value="<?php echo $limits['href']; ?>" selected="selected"><?php echo $limits['text']; ?></option>
+                          <?php } else { ?>
+                              <option class="my_howManyProductsShow__elements" value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
+                          <?php } ?>
+                      <?php } ?>
+                  </select>
+              </div>
+          </div>
+
+
       </div>
-      <div class="row">
-        <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
-        <div class="col-sm-6 text-right"><?php echo $results; ?></div>
-      </div>
+
+<!--      <div class="row">-->
+<!--        <div class="col-sm-6 text-left">--><?php //echo $pagination; ?><!--</div>-->
+<!--        <div class="col-sm-6 text-right">--><?php //echo $results; ?><!--</div>-->
+<!--      </div>-->
+
+
+
+
+
       <?php } ?>
       <?php if (!$categories && !$products) { ?>
       <p><?php echo $text_empty; ?></p>
+
+
+
+
+
+
+
+
+
+
       <div class="buttons">
         <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
       </div>
