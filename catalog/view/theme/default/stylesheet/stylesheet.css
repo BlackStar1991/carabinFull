@@ -1142,7 +1142,7 @@ h2.price {
 .b-company-info__label{
     font-family: "Roboto",sans-serif;
     font-size: 16px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 .b-company-info__label span,
 .tel{
@@ -1161,7 +1161,8 @@ h2.price {
     overflow: hidden;
 }
 
-.sidebar-map:hover .sidebar-map__wrapper:after{
+.sidebar-map:hover .sidebar-map__wrapper:after,
+.sidebar-map:hover .sidebar-map__decorLayer{
     opacity:1;
     transition: all 0.4s;
 }
@@ -1171,22 +1172,16 @@ h2.price {
     width: 100%;
     height: 100%;
 }
-.sidebar-map_img{
-  
-    width: 254px;
-    height: 150px;
-}
-
-.sidebar-map_img:after{
-    content: '';
+.sidebar-map__decorLayer{
     position: absolute;
-    display: block;
-    width: 100%;
+    top: 0;
+    left: 0;
+    min-width:254px;
     height: 100%;
-    background-color: #000;
+    background-color: rgba(0,0,0, .25);
     z-index:2;
+    opacity:0;
 }
-
 
 .sidebar-map__wrapper:after {
     content: '';
@@ -1202,4 +1197,10 @@ h2.price {
     opacity:0;
 
     z-index:3;
+}
+.invisibleBlock{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity:0 !important;
 }
