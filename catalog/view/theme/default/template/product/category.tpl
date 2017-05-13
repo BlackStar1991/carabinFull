@@ -14,28 +14,39 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?></h1>
+      <h1 class="my_categore__name"><?php echo $heading_title; ?></h1>
       <?php if ($thumb || $description) { ?>
       <div class="row">
+
         <?php if ($thumb) { ?>
         <div class="col-sm-2"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" title="<?php echo $heading_title; ?>" class="img-thumbnail" /></div>
         <?php } ?>
         <?php if ($description) { ?>
-        <div class="col-sm-10"><?php echo $description; ?></div>
+        <div class="col-sm-12">
+          <p class="my_categore__description">  <?php echo $description; ?> </p>
+        </div>
         <?php } ?>
       </div>
       <hr>
+
+
       <?php } ?>
+
+
+
+
       <?php if ($categories) { ?>
       <h3><?php echo $text_refine; ?></h3>
       <?php if (count($categories) <= 5) { ?>
       <div class="row">
         <div class="col-sm-3">
-          <ul>
-            <?php foreach ($categories as $category) { ?>
-            <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-            <?php } ?>
-          </ul>
+            <ul>
+                <?php foreach ($categories as $category) { ?>
+                    <li><?php if ($thumb) { ?>
+                            <div class="image"><a href="<?php echo $category['href']; ?>"><img src="<?php echo $thumb ?>" alt="<?php echo $category['name']; ?>" /></a></div>
+                        <?php } ?><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+                <?php } ?>
+            </ul>
         </div>
       </div>
       <?php } else { ?>

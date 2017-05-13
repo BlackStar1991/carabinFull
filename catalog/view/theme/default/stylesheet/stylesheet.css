@@ -1208,6 +1208,20 @@ h2.price {
 
 /* CATEGORY */
 
+.my_categore__name{
+    font-size: 27px;
+    font-family: "Roboto Slab", sans-serif;
+    text-align: left;
+    margin: 0 0 20px 0;
+    position: relative;
+    text-transform: uppercase;
+}
+
+
+.my_categore__description{
+    margin: 15px 0;
+    font: 16px "Roboto",sans-serif;
+}
 
 /*sorter*/
 .my_sorter__form{
@@ -1232,15 +1246,18 @@ h2.price {
 /*buttons sorter*/
 .my_sorter__group{
     float: right;
+    outline: 0;
+    outline-offset: 0;
 }
 
 .my_sorter__group button{
-    background-color: transparent;
+    background-color: transparent !important;
     border: none;
+
 }
 
 .my_sorter__button{
-    cursor: default;
+    background-color: transparent !important;
     white-space: nowrap;
     font-size: 2em;
 }
@@ -1251,6 +1268,7 @@ h2.price {
 }
 .active .my_sorter__button {
     color: #fee900;
+
 }
 
 
@@ -1292,14 +1310,15 @@ h2.price {
 /* how Many Products Show*/
 
 .my_howManyProductsShow__block{
-    float: right !important;
+    float: right;
     width: 100%;
     color: #666;
+    text-align: right;
 }
 
 .my_howManyProductsShow__items{
     width:auto !important;
-
+    display: inline-block;
     margin-left: 5px;
     outline: none;
     color: #333;
@@ -1307,13 +1326,18 @@ h2.price {
     font: 14px/16px "Roboto",sans-serif;
 
 }
+.input-group .form-control{
 
-.my_howManyProductsShow__textElements{
+    float: none;
+}
+
+.my_howManyProductsShow__textElements {
+    display: inline-block;
+    width:auto;
     border: none;
     background-color: transparent;
 }
 
 .my_howManyProductsShow__elements{
     width: auto;
-
 }
