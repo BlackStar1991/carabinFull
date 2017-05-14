@@ -125,8 +125,36 @@
         <?php foreach ($products as $product) { ?>
         <div class="product-layout product-list col-xs-12">
           <div class="product-thumb">
-            <div class="image my_product"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
-            <div>
+            <div class="image my_product">
+                <a href="<?php echo $product['href']; ?>">
+                    <img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a>
+
+
+                <!-- НУЖЕН КОД на кнопки Купить + связатся с нами-->
+                <div class="my_product__contactButtons">
+                    <a class="my_product__buyLink" href="#">
+                        <button class="my_product__buyButton">
+                            Купить                                                   <!---  скриптом? -->
+                        </button>
+                    </a>
+                    <a class="my_product__callbackLink" href="#">
+                        <button class="my_product__callbackButton"></button>
+                        <label class="my_product__callbackButtonDescription">
+                           <span>Оставьте свой номер телефона и представитель компании свяжется с вами</span>
+                        </label>
+                    </a>
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+              <div>
 
 
               <div class="caption">
@@ -165,21 +193,7 @@
                 <?php } ?>
               </div>
 
-<!-- НУЖЕН КОД на кнопки Купить + связатся с нами-->
-                <div class="my_product__contactButtons">
-                    <a class="my_product__buyButton" href="#">
-                        <span class="my_product__buyButtonText">
-                            Купить                                                   <!---  скриптом? -->
 
-                        </span>
-                    </a>
-                    <a class="my_product__callbackButton" href="#">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
-                        <label class="my_product__callbackButtonDescription">
-                            Оставьте свой номер телефона и представитель компании свяжется с вами
-                        </label>
-                    </a>
-                </div>
 
 
 
