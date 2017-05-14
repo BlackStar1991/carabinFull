@@ -42,7 +42,8 @@
 
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css"/>
     <link href="//fonts.googleapis.com/css?family=Roboto:400,400i,300,700" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet" type="text/css"/>
+<!--    <link href="//fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet" type="text/css"/>-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 
 
     <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet">

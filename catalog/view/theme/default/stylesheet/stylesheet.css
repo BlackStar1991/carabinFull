@@ -1,5 +1,5 @@
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: Arial,sans-serif;
     font-weight: 400;
     color: #666;
     font-size: 12px;
@@ -51,7 +51,7 @@ a:hover {
 
 legend {
     font-size: 18px;
-    padding: 7px 0px
+    padding: 7px 0;
 }
 
 label {
@@ -1223,6 +1223,114 @@ h2.price {
     font: 16px "Roboto",sans-serif;
 }
 
+.my_categore__allElements{
+    margin: 0;
+    padding: 20px 0;
+}
+
+.my_categore__element{
+    float: left;
+    width: 24%;
+    max-width:24%;
+    height: 280px;
+    padding: 0;
+    font-size: 0;
+    list-style-type: none;
+    margin: 1% 0 1% 1%;
+}
+
+
+
+
+.my_categore__elementWrapper{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    text-decoration: none;
+
+}
+
+
+.my_categore__imageBlock{
+
+    position: relative;
+    display: block;
+    float: none;
+    overflow: hidden;
+    width: 100%;
+    height: 200px;
+    margin: 0 0 17px 0;
+    line-height: 200px;
+
+    transform: scale(1);
+    transition: all 200ms;
+    text-align: center;
+    vertical-align: middle;
+
+    white-space: nowrap;
+    text-decoration: none;
+
+
+}
+
+
+.my_categore__image{
+    max-width: 100%;
+    height: auto;
+
+    width: 176px;        ////// убрать
+    height: 200px;       ////////
+
+
+    vertical-align: middle;
+
+    transition: all 300ms;
+    border: none;
+}
+
+.my_categore__quantityElements{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 76px;
+
+    font-size: 15px;
+    margin: auto;
+    color: #333;
+
+    line-height: 3;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #fff;
+
+    transition: all 300ms;
+    opacity: 0;
+}
+
+
+.my_categore__subcategoryName{
+    font: 14px/16px "Roboto",sans-serif;
+    text-align: center;
+    color: #333;
+}
+/* hover*/
+.my_categore__element:hover .my_categore__quantityElements{
+    opacity: 1;
+    transition: all 400ms;
+}
+.my_categore__element:hover .my_categore__image{
+    transform: scale(1.2);
+    transition: all 400ms;
+}
+.my_categore__element:hover .my_categore__elementWrapper{
+    border: 1px solid #000;
+}
+.my_categore__element:hover .my_categore__subcategoryName{
+    color: #fee900;
+}
+
 /*sorter*/
 .my_sorter__form{
     float: left;
@@ -1340,4 +1448,70 @@ h2.price {
 
 .my_howManyProductsShow__elements{
     width: auto;
+}
+
+/* Product*/
+
+.my_product{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.my_product__contactButtons{
+    position: absolute;
+    top: 110px;
+
+    font: normal 13px "Roboto",sans-serif;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1;
+    background-color: rgba(255,255,255,0.66);
+
+    transition: all 200ms;
+    opacity: 1;
+}
+
+.my_product__buyButton{
+    display: inline-block;
+    color: #fff;
+    text-transform: uppercase;
+    font: normal 1em/22px "Roboto",sans-serif;
+    padding: 9px 30px 9px 10px;
+    box-sizing: content-box;
+    background: #2f2a2b;
+    transition: all 400ms;
+}
+
+
+.my_product__callbackButton{
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    font: 20px/40px "Roboto",sans-serif;
+    padding: 0;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    border: #2f2a2b 1px solid;
+    background: #2f2a2b;
+
+    transition: all 400ms;
+    border-radius: 3px;
+}
+
+.my_product__buyButton:after{
+    content: '\f07a';
+    font-family: "FontAwesome";
+
+}
+
+
+.my_product__callbackButtonDescription{
+
+    position: absolute;
+    display: none;
 }

@@ -39,12 +39,23 @@
       <h3><?php echo $text_refine; ?></h3>
       <?php if (count($categories) <= 5) { ?>
       <div class="row">
-        <div class="col-sm-3">
-            <ul>
+        <div class="col-xs-12">
+            <ul class="my_categore__allElements clearfix">
                 <?php foreach ($categories as $category) { ?>
-                    <li><?php if ($thumb) { ?>
-                            <div class="image"><a href="<?php echo $category['href']; ?>"><img src="<?php echo $thumb ?>" alt="<?php echo $category['name']; ?>" /></a></div>
-                        <?php } ?><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+
+                <li class="my_categore__element"><?php if ($thumb) { ?>
+                    <a class="my_categore__elementWrapper" href="<?php echo $category['href']; ?>">
+
+                            <div class="my_categore__imageBlock">
+                                    <img class="my_categore__image" src="<?php echo $category['thumb']; ?>" alt="<?php echo $category['name']; ?>" />
+
+                                <span class="my_categore__quantityElements"><?php echo $category['product_total'];  ?>  </span>
+                            </div>
+                        <?php } ?><p class="my_categore__subcategoryName"><?php echo $category['name']; ?></p>
+
+                    </a>
+                </li>
+
                 <?php } ?>
             </ul>
         </div>
@@ -114,8 +125,10 @@
         <?php foreach ($products as $product) { ?>
         <div class="product-layout product-list col-xs-12">
           <div class="product-thumb">
-            <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
+            <div class="image my_product"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
             <div>
+
+
               <div class="caption">
                 <h4><a class="my_caption__item" href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
 
@@ -151,6 +164,25 @@
                 </div>
                 <?php } ?>
               </div>
+
+<!-- НУЖЕН КОД на кнопки Купить + связатся с нами-->
+                <div class="my_product__contactButtons">
+                    <a class="my_product__buyButton" href="#">
+                        <span class="my_product__buyButtonText">
+                            Купить                                                   <!---  скриптом? -->
+
+                        </span>
+                    </a>
+                    <a class="my_product__callbackButton" href="#">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <label class="my_product__callbackButtonDescription">
+                            Оставьте свой номер телефона и представитель компании свяжется с вами
+                        </label>
+                    </a>
+                </div>
+
+
+
 
 
     <!--          <div class="button-group">
