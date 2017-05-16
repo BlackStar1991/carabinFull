@@ -1,4 +1,6 @@
-<div class="list-group">
+
+<h2 class="catalog_title"> Каталог </h2>
+<div class="list-group list-group_style">
   <?php foreach ($categories as $category) { ?>
   <?php if ($category['category_id'] == $category_id) { ?>
   <a href="<?php echo $category['href']; ?>" class="list-group-item active"><?php echo $category['name']; ?></a>

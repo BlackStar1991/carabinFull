@@ -496,12 +496,25 @@ $(document).delegate('.agree', 'click', function (e) {
 })(window.jQuery);
 
 
+
+
 $('document').ready(function(){
+
+    var my_modal__map = $("#my_modal__map"),
+        closeButtonForMap = $(".my_button_close");
+
     $(".sidebar-map").on("click", function () {
+        my_modal__map.toggleClass("hide").modal();
+    });
 
 
-        console.log("ok");
-        $('#my_modal__map').toggleClass("hide").modal();
-    })
+
+    function addHideClassForMapIframe(my_buttonMap) {
+        my_buttonMap.on("click", function(){
+            my_modal__map.addClass("hide");
+        })
+    }
+    addHideClassForMapIframe(my_modal__map);
+    addHideClassForMapIframe(closeButtonForMap);
 
 });
