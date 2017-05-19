@@ -500,21 +500,59 @@ $(document).delegate('.agree', 'click', function (e) {
 
 $('document').ready(function(){
 
-    var my_modal__map = $("#my_modal__map"),
-        closeButtonForMap = $(".my_button_close");
+    var sidebar_map =  $(".sidebar-map"),
 
-    $(".sidebar-map").on("click", function () {
-        my_modal__map.toggleClass("hide").modal();
-    });
+        callbackButton = $(".my_callback__button"),
+
+        closeButton = $(".my_button_close"),
+
+        my_modal__map = $("#my_modal__map"),
+        my_modal__callback=$("#my_modal__callback"),
+        allModalWindows = $(".modal");
 
 
 
-    function addHideClassForMapIframe(my_buttonMap) {
-        my_buttonMap.on("click", function(){
-            my_modal__map.addClass("hide");
+    // SHOW MODAL WINDOW
+
+    function showModalWindow(button, whoteModalWindowShow){
+
+        button.on("click", function () {
+
+
+            whoteModalWindowShow.toggleClass("hide").modal();
+        });
+    }
+
+    showModalWindow(sidebar_map, my_modal__map); /// show map modal window
+    showModalWindow(callbackButton,  my_modal__callback);
+
+    // HIDE MODAL WINDOW
+    function addHideClassForMapModalWindow(my_button) {
+        my_button.on("click", function(){
+            allModalWindows.addClass("hide");
         })
     }
-    addHideClassForMapIframe(my_modal__map);
-    addHideClassForMapIframe(closeButtonForMap);
+    // addHideClassForMapModalWindow(my_modal__map);
+    // addHideClassForMapModalWindow(my_modal__callback);
+
+
+    addHideClassForMapModalWindow(closeButton);
+    addHideClassForMapModalWindow(allModalWindows);
+
+
+
+    var blockTelephonesFirstLine = $(".blockTelephones_title"),
+        blockTelephonesFullBlock = $(".blockTelephones_block");
+
+
+    function showHideElement(button, elem){
+        button.on("click", function () {
+            elem.toggleClass("visible, hidden");
+        });
+    }
+    showHideElement(blockTelephonesFirstLine, blockTelephonesFullBlock);
+    showHideElement(blockTelephonesFullBlock, blockTelephonesFullBlock);
+
+
 
 });

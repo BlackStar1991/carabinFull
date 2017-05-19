@@ -130,42 +130,45 @@
                     <?php foreach ($products as $product) { ?>
                         <div class="product-layout product-list col-xs-12">
                             <div class="product-thumb">
-                                <div class="image my_product">
-                                    <a href="<?php echo $product['href']; ?>">
+                                <div class="image my_product clearfix">
+                                    <a class="my_product__imageWrappen" href="<?php echo $product['href']; ?>">
                                         <img src="<?php echo $product['thumb']; ?>"
                                              alt="<?php echo $product['name']; ?>"
-                                             title="<?php echo $product['name']; ?>" class="img-responsive"/></a>
+                                             title="<?php echo $product['name']; ?>"
+
+                                             class="img-responsive my_product__imagePhoto"/></a>
 
 
-                                    <!-- НУЖЕН КОД на кнопки Купить + связатся с нами-->
                                     <div class="my_product__contactButtons">
-                                        <a class="my_product__buyLink" href="#">
-                                            <button class="my_product__buyButton">
-                                                Купить
-                                                <!---  скриптом? -->
-                                            </button>
-                                        </a>
-                                        <a class="my_product__callbackLink" href="#">
-                                            <button class="my_product__callbackButton"></button>
-                                            <label class="my_product__callbackButtonDescription">
+
+                                        <button class="my_product__buyLink"
+                                                onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');">
+                                            <span class="hidden-xs my_product__buyButton"><?php echo $button_cart; ?></span>
+                                        </button>
+
+                                        <button class="my_product__callbackLink" href="#">
+                                            <span class="my_product__callbackButton my_callback__button"></span>
+                                            <p class="my_product__callbackButtonDescription">
                                                 <span>Оставьте свой номер телефона и представитель компании свяжется с вами</span>
-                                            </label>
-                                        </a>
+                                            </p>
+                                        </button>
                                     </div>
 
 
                                 </div>
 
 
-                                <div>
+
 
 
                                     <div class="caption">
-                                        <h4><a class="my_caption__item"
+                                        <h4>
+                                            <a class="my_caption__item"
                                                href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
                                         </h4>
 
-<!--                                               <p>--><?php //echo $product['description']; ?><!--</p>-->
+                                        <!--                                        <p class="my_description_product">-->
+                                        <?php //echo $product['description']; ?><!--</p>-->
 
                                         <?php if ($product['price']) { ?>
                                             <p class="price my_price__item">
@@ -186,69 +189,66 @@
                                         </div>
 
 
-                                        <?php if ($product['rating']) { ?>
-                                            <div class="rating">
-                                                <?php for ($i = 1; $i <= 5; $i++) { ?>
-                                                    <?php if ($product['rating'] < $i) { ?>
-                                                        <span class="fa fa-stack"><i
-                                                                    class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <?php } else { ?>
-                                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                                                    class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <?php } ?>
-                                                <?php } ?>
-                                            </div>
-                                        <?php } ?>
+                                        <!--                                        --><?php //if ($product['rating']) { ?>
+                                        <!--                                            <div class="rating">-->
+                                        <!--                                                --><?php //for ($i = 1; $i <= 5; $i++) { ?>
+                                        <!--                                                    --><?php //if ($product['rating'] < $i) { ?>
+                                        <!--                                                        <span class="fa fa-stack"><i-->
+                                        <!--                                                                    class="fa fa-star-o fa-stack-2x"></i></span>-->
+                                        <!--                                                    --><?php //} else { ?>
+                                        <!--                                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i-->
+                                        <!--                                                                    class="fa fa-star-o fa-stack-2x"></i></span>-->
+                                        <!--                                                    --><?php //} ?>
+                                        <!--                                                --><?php //} ?>
+                                        <!--                                            </div>-->
+                                        <!--                                        --><?php //} ?>
                                     </div>
 
-                                    <div class="button-group">
-                <button class="my_cart__button" type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md my_cart__textNearButton"><?php echo $button_cart; ?></span></button>
- <!--               <button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>
+                                    <!--                                    <div class="button-group">-->
+                                    <!--         <button class="my_cart__button" type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md my_cart__textNearButton"><?php echo $button_cart; ?></span></button>
+             <button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>
                 <button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>   -->
-              </div>
+                                    <!--                                    </div>-->
 
 
-                                </div>
+                                
                             </div>
                         </div>
                     <?php } ?>
 
 
-
                     <!-- Navigation on items -->
                     <div class="my_menuCreate clearfix">
 
-                    <div class="col-xs-6">
-                        <div class="my_paginatorBlock">
-                            <?php echo $pagination; ?>
-               <!--             <?php echo $results; ?>   -->
+                        <div class="col-xs-6">
+                            <div class="my_paginatorBlock">
+                                <?php echo $pagination; ?>
+                                <!--             <?php echo $results; ?>   -->
+                            </div>
+
+
                         </div>
 
-
-
-
-                    </div>
-
-                    <!--   How many items show  -->
-                    <div class="col-xs-6">
-                        <div class="form-group input-group input-group-sm  my_howManyProductsShow__block">
-                            <label class="input-group-addon my_howManyProductsShow__textElements"
-                                   for="input-limit"><?php echo $text_limit; ?></label>
-                            <select id="input-limit" class="form-control my_howManyProductsShow__items"
-                                    onchange="location = this.value;">
-                                <?php foreach ($limits as $limits) { ?>
-                                    <?php if ($limits['value'] == $limit) { ?>
-                                        <option class="my_howManyProductsShow__elements"
-                                                value="<?php echo $limits['href']; ?>"
-                                                selected="selected"><?php echo $limits['text']; ?></option>
-                                    <?php } else { ?>
-                                        <option class="my_howManyProductsShow__elements"
-                                                value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
+                        <!--   How many items show  -->
+                        <div class="col-xs-6">
+                            <div class="form-group input-group input-group-sm  my_howManyProductsShow__block">
+                                <label class="input-group-addon my_howManyProductsShow__textElements"
+                                       for="input-limit"><?php echo $text_limit; ?></label>
+                                <select id="input-limit" class="form-control my_howManyProductsShow__items"
+                                        onchange="location = this.value;">
+                                    <?php foreach ($limits as $limits) { ?>
+                                        <?php if ($limits['value'] == $limit) { ?>
+                                            <option class="my_howManyProductsShow__elements"
+                                                    value="<?php echo $limits['href']; ?>"
+                                                    selected="selected"><?php echo $limits['text']; ?></option>
+                                        <?php } else { ?>
+                                            <option class="my_howManyProductsShow__elements"
+                                                    value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
+                                        <?php } ?>
                                     <?php } ?>
-                                <?php } ?>
-                            </select>
+                                </select>
+                            </div>
                         </div>
-                    </div>
 
                     </div>
                 </div>

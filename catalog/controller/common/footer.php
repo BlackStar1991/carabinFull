@@ -45,6 +45,17 @@ class ControllerCommonFooter extends Controller {
 		$data['wishlist'] = $this->url->link('account/wishlist', '', true);
 		$data['newsletter'] = $this->url->link('account/newsletter', '', true);
 
+// Modal CallBack
+        $data['text_one_click_header']     		= $this->language->get('text_one_click_header');
+        $data['text_one_click_button']  		= $this->language->get('text_one_click_button');
+        $data['text_one_click_placeholder']  	= $this->language->get('text_one_click_placeholder');
+        $data['text_one_click_help']  			= $this->language->get('text_one_click_help');
+        $data['text_one_click_mask']  			= $this->language->get('text_one_click_mask');
+
+
+
+
+
 		$data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
 
 		// Whos Online

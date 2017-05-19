@@ -19,7 +19,7 @@
       <div class="panel-body">
         <div class="row">
           <div class="col-lg-3 col-md-3 col-sm-12">
-            <div class="list-group">
+            <div class="list-group list-group_style">
               <div class="list-group-item">
                 <h4 class="list-group-item-heading"><?php echo $text_store; ?></h4>
               </div>

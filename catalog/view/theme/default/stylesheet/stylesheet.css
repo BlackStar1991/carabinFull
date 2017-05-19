@@ -73,9 +73,9 @@ select.form-control, textarea.form-control, input[type="text"].form-control, inp
 }
 
 /* Fix some bootstrap issues */
-span.hidden-xs, span.hidden-sm, span.hidden-md, span.hidden-lg {
-    display: inline;
-}
+/*span.hidden-xs, span.hidden-sm, span.hidden-md, span.hidden-lg {*/
+    /*display: inline;*/
+/*}*/
 
 .nav-tabs {
     margin-bottom: 15px;
@@ -98,9 +98,9 @@ div.required .control-label:before {
 
 /* top */
 #top {
-    background-color: #EEEEEE;
+    background-color: #EEE;
     border-bottom: 1px solid #e2e2e2;
-    padding: 4px 0px 3px 0;
+    padding: 4px 0 3px 0;
     margin: 0 0 20px 0;
     min-height: 40px;
 }
@@ -203,7 +203,7 @@ div.required .control-label:before {
 .companyName {
     position: relative;
     display: block;
-
+    margin-top: 9.5%;
     padding-left: 30px;
     max-width: 400px;
 }
@@ -226,12 +226,29 @@ div.required .control-label:before {
     margin: 0;
     padding: 0;
     color: #2f2a2b;
+    font-weight: bold;
     line-height: 1.2;
     font-size: 14px;
     background: none;
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
     text-align: left;
 
+}
+/* SHOPPING CART*/
+
+.my_header__shopingCart{
+    float: right;
+    background-color: #fff;
+
+}
+.my_header__shopingCart a{
+    color: #444;
+    font-size: 16px;
+}
+.my_header__shopingCart a:hover,
+.my_header__shopingCart a:focus{
+    color: #fee900;
+    text-decoration: none;
 }
 
 /* search */
@@ -244,11 +261,12 @@ div.required .control-label:before {
 /*}*/
 
 .header_search {
+    clear: both;
     float: right;
     position: relative;
     box-sizing: border-box;
     text-align: left;
-    margin-top: 34px;
+    /*margin-top: 34px;*/
     margin-bottom: 1%;
     /*padding: 10px 45px 10px 15px;*/
     width: 270px;
@@ -318,8 +336,7 @@ div.required .control-label:before {
 }
 
 #cart.open > .btn {
-    background-image: none;
-    background-color: #FFFFFF;
+    background: #FFFFFF none;
     border: 1px solid #E6E6E6;
     color: #666;
     box-shadow: none;
@@ -380,6 +397,7 @@ div.required .control-label:before {
 #menu{
     position: relative;
     width: 100%;
+    background-color: #2f2a2b;
 }
 
 /*.my_navigation__wrapper{*/
@@ -689,22 +707,25 @@ footer h5 {
     width: 100%;
     background-color: white;
 }
-
+.breadcrumb li{
+    position: relative;
+}
 .breadcrumb li a {
+
     font-size: 16px;
     color: #333;
 }
 
 .breadcrumb > li:after {
-    content: '>';
-    display: block;
-    position: absolute;
-    top: -3px;
-    right: -5px;
-    width: 26px;
-    height: 26px;
-    border-right: 1px solid #DDD;
-    border-bottom: 1px solid #DDD;
+    /*content: '';*/
+    /*display: block;*/
+    /*position: absolute;*/
+    /*top: -3px;*/
+    /*right: -5px;*/
+    /*width: 26px;*/
+    /*height: 26px;*/
+    /*border-right: 1px solid #DDD;*/
+    /*border-bottom: 1px solid #DDD;*/
 
 }
 
@@ -950,6 +971,93 @@ footer h5 {
     color: #fee900;
 }
 
+
+/* TRANSITION - рекомендуемые товары*/
+
+
+.my_transition__title{
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 5px;
+    padding: 5px 15px;
+    border: 1px solid #e5e5e5;
+    border-bottom: none;
+    color: #000;
+    margin-bottom: 0;
+}
+
+
+.my_transition__fullList{
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    min-height:160px;
+}
+.my_transition__productName{
+    /*display: block;*/
+    /*margin-bottom: 10px;*/
+}
+
+.my_transition__productName a{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 0;
+
+    color: #333;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: "Roboto",sans-serif;
+    text-align: center;
+    transition: all 200ms;
+}
+
+.product-thumb.my_transition__item{
+
+    float: left;
+    max-width: 20%;
+    height: 100%;
+    border:none;
+
+}
+
+
+.product-thumb.my_transition__item .caption{
+    min-height: auto;
+}
+
+
+.transition .my_transition__imageBlock{
+
+    width: 100px;
+    height: 90px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+
+
+}
+.transition .my_transition__imageBlock a{
+    width: 100%;
+
+    display: block;
+}
+
+.transition .my_transition__imageBlock img{
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+.my_transition__item:hover .my_transition__productName a{
+    color: #fee900;
+}
+.my_transition__item:hover  .my_transition__imageBlock{
+    border-color: #fee900;
+}
+
+
+
+
+
 /* carousel */
 .carousel-caption {
     color: #FFFFFF;
@@ -970,6 +1078,7 @@ footer h5 {
 
     width: 100%;
     margin-top: 20px;
+    padding: 0;
     position: relative;
 }
 
@@ -1008,11 +1117,12 @@ footer h5 {
 }
 
 .owl-controls .owl-page.active .my_dot {
-    background: #fee900 !important;
+    background-color: #fee900 !important;
 }
 
 /* product list */
 .product-thumb {
+    position: relative;
     border: 1px solid #ddd;
     margin-bottom: 20px;
     overflow: auto;
@@ -1020,6 +1130,7 @@ footer h5 {
 
 .product-thumb .image {
     text-align: center;
+    margin: 0 auto;
 }
 
 .product-thumb .image a {
@@ -1055,8 +1166,16 @@ footer h5 {
     min-height: 180px;
 }
 
+
+.product-thumb .caption  a{
+    color: #979495;
+    text-align: center;
+    text-transform: uppercase;
+}
+
 .product-list .product-thumb .caption {
-    margin-left: 230px;
+    height:auto;
+    /*margin-left: 230px;*/
 }
 
 @media (max-width: 1200px) {
@@ -1153,8 +1272,10 @@ h2.price {
     border: none;
     display: inline-block;
     float: left;
-    background-color: #eee;
-    color: #888;
+    /*background-color: #eee;*/
+    /*color: #888;*/
+    background-color: #2f2a2b;
+    color: #fff;
     line-height: 38px;
     font-weight: bold;
     text-align: center;
@@ -1167,8 +1288,10 @@ h2.price {
 }
 
 .product-thumb .button-group button:hover {
-    color: #444;
-    background-color: #ddd;
+
+    background-color: #fee900;
+    color: #2f2a2b;
+    transition: all 200ms;
     text-decoration: none;
     cursor: pointer;
 }
@@ -1193,20 +1316,116 @@ h2.price {
 
 .wrappenElements ul {
     padding-left: 10px;
+    padding-right: 10px;
 }
 
-.myProduct {
-    display: block;
-    margin-top: 1%;
-    width: 100%;
-    min-height: 100px;
-    border: 1px solid #000;
+
+/* CALLBACK */
+
+.my_callback__button{
+    /* This class is responsible for modal window */
 }
+
+
+.my_callback__buttonForProduct{
+    position: relative;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 40px;
+    margin: 0;
+    padding: 0 10px;
+    text-align: center;
+    vertical-align: middle;
+    color: #282828;
+    outline:none;
+    border: 1px solid #e4e4e4;
+    border-radius: 5px;
+    background: transparent;
+    transition: all 200ms;
+}
+.my_callback__buttonForProduct:after{
+    content: '\f095';
+    font-family: "FontAwesome";
+
+    margin-left: 10px;
+    font-size: 16px;
+
+    z-index: 2;
+}
+
+
+.my_callback__buttonForProduct:hover{
+    color: #1f1709;
+    border: 1px solid #1f1709;
+    transition: all 200ms;
+}
+
+/*TELEPHONS*/
+.blockTelephones{
+    /*display: block;*/
+    position: relative;
+
+    /*width: 140px;*/
+    height: 20px;
+    font-size: 14px;
+    display: inline-block;
+    margin: 5px 0 0;
+    vertical-align: top;
+    border-bottom: 1px dotted #2f2a28;
+}
+
+
+.blockTelephones_title{
+    position: relative;
+    font-size: 14px;
+    cursor: pointer;
+}
+.blockTelephones_title:after{
+    font-family:"FontAwesome";
+    content: '\f0d7';
+    display: block;
+    position: absolute;
+    right: -10px;
+    top: 0;
+    font-size: 11px;
+}
+
+.blockTelephones_block{
+    position: relative;
+    margin-top: -20px;
+    display: block;
+    min-width: 170px;
+    list-style-type: none;
+    background: #f7f7f7;
+    padding: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.blockTelephones_block li:first-child {
+    border-bottom: 1px dotted #2f2a28;
+}
+.blockTelephones_block li:nth-child(2) {
+    padding-top: 5px;
+}
+
+.blockTelephones_number{
+    line-height: 16px;
+    position: relative;
+    /*display: none;*/
+    color: #383838;
+    min-width: 140px;
+    padding-bottom: 5px;
+}
+
+
 
 .blockLinks {
     width: 100%;
+    clear: both;
     padding: 10px 0;
-    margin-top: 10px;
+    margin-top: 15px;
     background-color: #323232;
     text-align: center;
 
@@ -1217,6 +1436,15 @@ h2.price {
     padding: 0 10%;
 
 }
+
+
+#tab-description{
+    margin: 15px 0;
+    line-height: 20px;
+    zoom: 1;
+}
+
+
 
 .blockLinks_item {
     display: inline-block;
@@ -1355,10 +1583,62 @@ h2.price {
     margin-bottom: 5px;
 }
 
+/* FILTERS */
+
+.nav .my_ocbox__group{
+
+}
+
+.nav .my_ocbox__item {
+    margin-bottom: 10px;
+    padding-top: 10px;
+    border-top: 1px dotted #e5e5e5;
+    line-height: 14px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.nav .my_ocbox__item a{
+    display: inline-block;
+    /*margin-left: 10px;*/
+    padding: 0;
+    vertical-align: top;
+    color: #333;
+    text-decoration: none;
+    border:none;
+}
+.nav .my_ocbox__item a:hover{
+    background-color: transparent;
+    text-decoration: none;
+    border:none;
+    color: #fee900;
+    transition: all 0.2s;
+}
+
+.nav .my_ocbox__checkbox{
+    margin-top: 2px;
+    display: inline-block;
+}
+
+
+.my_ocbox__fullQuantityItemss{
+    vertical-align: top;
+    margin-top: 2px;
+    margin-left: 5px;
+    font-size: 11px;
+    line-height: 1;
+    display: inline-block;
+
+}
+
+
+
+
 /* MAP */
 
 .sidebar-map {
     position: relative;
+    cursor: pointer;
     overflow: hidden;
 }
 
@@ -1408,7 +1688,7 @@ h2.price {
     opacity: 0 !important;
 }
 
-/* MODAL MAP*/
+/* MODAL WINDOW*/
 .my_modal__window {
 
     position: absolute;
@@ -1417,9 +1697,8 @@ h2.price {
     width: 50vw;
     background-color: #f8f8f8;
     border-radius: 2px;
-    box-shadow: 0 0 0 #fff;
+    color: #555;
     max-width: 85%;
-
 }
 
 .my_modal__adress {
@@ -1440,7 +1719,8 @@ h2.price {
 /* CATEGORY */
 
 .my_categore__name {
-    font-size: 27px/40px;
+    font-size: 27px;
+    line-height:40px;
     font-family: "Roboto Slab", sans-serif;
     text-align: left;
     margin: 0 0 20px 0;
@@ -1461,14 +1741,18 @@ h2.price {
 .my_categore__element {
     float: left;
     width: 24%;
-    max-width: 24%;
+    /*max-width: 24%;*/
     height: 280px;
     padding: 0;
     font-size: 0;
     list-style-type: none;
     margin: 1% 0 1% 1%;
 }
-
+@media (max-width: 640px){
+    .my_categore__element{
+        width: 49%;
+    }
+}
 .my_categore__elementWrapper {
     display: block;
     width: 100%;
@@ -1614,6 +1898,9 @@ h2.price {
     outline: none;
     text-decoration: none;
     text-align: center;
+
+
+    /*overflow: auto;*/
 }
 
 /*price*/
@@ -1630,6 +1917,7 @@ h2.price {
 }
 
 .my_product-line__data {
+    display: block;
     margin-top: 1%;
     width: 100%;
 }
@@ -1640,6 +1928,13 @@ h2.price {
     margin: 0 auto;
     font-size: 12px;
 }
+
+.my_description_product{
+    position: relative;
+    height: 80px;
+    overflow: hidden;
+}
+
 
 /*       */
 .my_menuCreate {
@@ -1759,18 +2054,97 @@ h2.price {
     margin: 0 0 20px;
 }
 
+
+.fullPage{
+    position: relative;
+    width: 100%;
+
+}
+.fullPage:after{
+    content: "";
+    position: absolute;
+    display: block;
+    right: 0;
+    bottom: 0;
+    width: 408px;
+    height: 100%;
+    box-sizing: border-box;
+    background: url(../image/detals/navigationBg.png) right bottom no-repeat;
+    z-index: 1;
+}
+
+/*  FUATURED */
+
+.product-layout.my_product_fuatured{
+
+}
+
+
+
+.my_navigationFild{
+    clear: both;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.my_button__goodsServices{
+    position: relative;
+    display: block;
+    width: 160px;
+    height: 24px;
+    margin:0 auto;
+    background-color: inherit;
+
+    outline:none;
+    border: none;
+}
+.my_button__goodsServices a{
+    position: absolute;
+    vertical-align: top;
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-size: 13px;
+    font-family:"Roboto",sans-serif;
+    line-height: 2;
+    margin: 0 auto;
+    padding: 4px 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 400ms;
+    box-sizing: content-box;
+    background-color: #2f2a2b;
+    z-index:5;
+}
+
+
+.my_button__goodsServices a:after{
+    content:"⇢";
+    display: block;
+    position: absolute;
+    top: 10%;
+    right: 2%;
+}
+
+.my_button__goodsServices a:hover{
+    background-color: #fee900;
+    color: #2f2a2b;
+    transition: all 400ms;
+}
+
 /* Product*/
 
 .my_product {
-    position: relative;
-    width: 100%;
+
+    /*width: 100%;*/
     height: 100%;
     /*overflow: hidden;*/
 }
 
 .product-thumb:hover .my_product__contactButtons {
     transition: all 200ms;
-    opacity: 1;
+    display: block;
 }
 
 .my_product__contactButtons {
@@ -1785,26 +2159,36 @@ h2.price {
     background-color: rgba(255, 255, 255, 0.66);
 
     transition: all 200ms;
-    opacity: 0;
-/ / / / / / / / / / / / / / / /
+
+    display: none;
+
 
 }
+
+
+
+
 
 .product-thumb .image .my_product__buyLink {
     display: inline-block;
+    vertical-align: top;
+    width:auto;
+    border: none;
+    outline: none;
+    padding: 0;
 }
 
 .my_product__buyButton {
-    display: inline-block;
+    display: block;
     position: relative;
-    width: auto;
+
+
+    padding: 9px 30px 9px 10px;
+    margin-bottom: 0;
+    box-sizing: content-box;
     color: #fff;
     text-transform: uppercase;
     font: normal 1em/22px "Roboto", sans-serif;
-    padding: 9px 30px 9px 10px;
-    box-sizing: content-box;
-    border: none;
-    outline: none;
     background: #2f2a2b;
     transition: all 400ms;
 }
@@ -1828,12 +2212,13 @@ h2.price {
     transition: all 400ms;
 }
 
-.product-thumb .image .my_product__callbackLink {
+.product-thumb .image  .my_product__callbackLink {
+
     display: inline-block;
     width: 40px;
     height: 40px;
 
-    vertical-align: top; /* почему эта фигня помогает? */
+    /*vertical-align: top; !* почему эта фигня помогает? *!*/
     font-family: "Roboto", sans-serif;
     font-size: 22px;
     padding: 0;
@@ -1843,11 +2228,18 @@ h2.price {
     background: #2f2a2b;
     transition: all 400ms;
     border-radius: 3px;
+    border: none;
+    outline: none;
 }
 
+
+
+
+
 .my_product__callbackButton {
-    width: 40px;
-    height: 40px;
+    display: block;
+    width: 100%;
+    height: 100%;
     padding: 0;
     margin: 0;
     background-color: transparent;
@@ -1858,13 +2250,13 @@ h2.price {
 .my_product__callbackButton:after {
     content: '\f095';
     font-family: "FontAwesome";
-    font-size: 20px;
+    /*transform: translateY(50%);*/
+    line-height: 2;
     z-index: 2;
 }
 
-.my_product__callbackLink .my_product__callbackButton:hover .my_product__callbackButtonDescription {
-    opacity: 1; /*  ПОчему не срабатывает? */
-    transition: all 200ms;
+.my_product__callbackButton:hover ~.my_product__callbackButtonDescription {
+    display: block;
 }
 
 .my_product__callbackButtonDescription {
@@ -1879,10 +2271,82 @@ h2.price {
     border-radius: 4px;
     z-index: 2;
 
-    opacity: 1;
-    transition: all 200ms;
+    /*display: block;*/
+    display: none;
 }
 
+/* FOR LIST FORMAT*/
+
+.product-layout .product-list .product-thumb{
+    height: auto;
+}
+
+.product-list .my_product__imageWrappen{
+    font-size: 1px;
+    line-height: 99px;
+    position: relative;
+    display: block;
+    float: left;
+    overflow: visible;
+    width: 170px;
+    height: 100px;
+    margin: 8px 20px 0 0;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-decoration: none;
+    border: 3px solid #f5f5f5;
+    background: #fff;
+}
+.product-list .my_product__imagePhoto{
+
+    width: 100px;
+    height: 90px;
+    text-align: center;
+}
+
+
+.product-list .image .my_product__contactButtons{
+    width: auto;
+    padding: 0;
+    top: 20px;
+    right: 20px;
+    /*float: right;*/
+    /*position: relative;*/
+
+}
+
+.product-list .my_product__buyLink{
+    float: right;
+    margin-left: 5px;
+}
+
+
+.product-list .my_product__contactButtons{
+    opacity: 1;
+}
+
+.product-list .product-thumb .caption h4{
+    margin: 0;
+}
+.product-list .product-thumb .caption  a{
+    text-align:left;
+    max-width:600px;
+
+    height: auto;
+}
+.product-list .my_price__item{
+    text-align:left;
+}
+.product-list .my_product-line__data span{
+    text-align:left;
+    height: auto;
+}
+
+.product-list .my_product__callbackButtonDescription{
+    width: 300px;
+    left: -120%;
+}
 
 
 /* DELIVERY */

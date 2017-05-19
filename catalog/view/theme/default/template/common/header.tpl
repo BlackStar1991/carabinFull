@@ -42,7 +42,6 @@
 
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css"/>
     <link href="//fonts.googleapis.com/css?family=Roboto:400,400i,300,700" rel="stylesheet" type="text/css"/>
-    <!--    <link href="//fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet" type="text/css"/>-->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 
 
@@ -67,10 +66,12 @@
 <!--    <div class="container">-->
 <!--        --><?php //echo $currency; ?>
 <!--        --><?php //echo $language; ?>
-<!--        <div id="top-links" class="nav pull-right">-->
+<!--        <div id="top-links" class="nav pull-right ">-->
 <!--            <ul class="list-inline">-->
-<!--                <li><a href="--><?php //echo $contact; ?><!--"><i class="fa fa-phone"></i></a> <span-->
-<!--                            class="hidden-xs hidden-sm hidden-md">--><?php //echo $telephone; ?><!--</span></li>-->
+<!--                <li><a href="-->
+<?php //echo $contact; ?><!--"><i class="fa fa-phone"></i></a> <span-->
+<!--                            class="hidden-xs hidden-sm hidden-md">-->
+<?php //echo $telephone; ?><!--</span></li>-->
 <!--                <li class="dropdown"><a href="--><?php //echo $account; ?><!--" title="-->
 <?php //echo $text_account; ?><!--"-->
 <!--                                        class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span-->
@@ -103,11 +104,7 @@
 <!--                                class="hidden-xs hidden-sm hidden-md">-->
 <?php //echo $text_wishlist; ?><!--</span></a></li>-->
 <!---->
-<!--                <li><a href="--><?php //echo $shopping_cart; ?><!--" title="-->
-<?php //echo $text_shopping_cart; ?><!--"><i-->
-<!--                                class="fa fa-shopping-cart"></i> <span-->
-<!--                                class="hidden-xs hidden-sm hidden-md">-->
-<?php //echo $text_shopping_cart; ?><!--</span></a></li>-->
+
 <!---->
 <!---->
 <!--                <li><a href="--><?php //echo $checkout; ?><!--" title="-->
@@ -161,8 +158,20 @@
 
 
             </div>
-            <div class="col-xs-12 col-sm-6"><?php echo $search; ?>
+            <div class="col-xs-12 col-sm-6">
 
+                <div class="my_header__shopingCart">
+<!--                    <a href="--><?php //echo $shopping_cart; ?><!--" title="-->
+<!--                        --><?php //echo $text_shopping_cart; ?><!--">-->
+<!--                        <span class="hidden-xs">-->
+<!--                        --><?php //echo $text_shopping_cart; ?><!--</span>-->
+<!--                        <i class="fa fa-shopping-cart"></i>-->
+<!---->
+<!--                    </a>-->
+                    <?php echo $cart; ?>
+                </div>
+
+                <?php echo $search; ?>
             </div>
 
 
@@ -181,36 +190,43 @@
                             data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
                 </div>
                 <div class="collapse navbar-collapse navbar-ex1-collapse my_navigation">
-<!--                    <div class="my_navigation__wrapper">-->
-                        <ul class="nav navbar-nav">
-                            <?php foreach ($categories as $category) { ?>
-                                <?php if ($category['children']) { ?>
-                                    <li class="dropdown"><a href="<?php echo $category['href']; ?>"
-                                                            class="dropdown-toggle"
-                                                            data-toggle="dropdown"><?php echo $category['name']; ?></a>
-                                        <div class="dropdown-menu">
-                                            <div class="dropdown-inner">
-                                                <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
-                                                    <ul class="list-unstyled">
-                                                        <?php foreach ($children as $child) { ?>
-                                                            <li>
-                                                                <a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
-                                                            </li>
-                                                        <?php } ?>
-                                                    </ul>
-                                                <?php } ?>
-                                            </div>
-                                            <a href="<?php echo $category['href']; ?>"
-                                               class="see-all"><?php echo $text_all; ?><?php echo $category['name']; ?></a>
+
+                    <ul class="nav navbar-nav">
+                        <?php foreach ($categories as $category) { ?>
+                            <?php if ($category['children']) { ?>
+                                <li class="dropdown"><a href="<?php echo $category['href']; ?>"
+                                                        class="dropdown-toggle"
+                                                        data-toggle="dropdown"><?php echo $category['name']; ?></a>
+                                    <div class="dropdown-menu">
+                                        <div class="dropdown-inner">
+                                            <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
+                                                <ul class="list-unstyled">
+                                                    <?php foreach ($children as $child) { ?>
+                                                        <li>
+                                                            <a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
+                                                        </li>
+                                                    <?php } ?>
+                                                </ul>
+                                            <?php } ?>
                                         </div>
-                                    </li>
-                                <?php } else { ?>
-                                    <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
-                                    </li>
-                                <?php } ?>
+                                        <a href="<?php echo $category['href']; ?>"
+                                           class="see-all"><?php echo $text_all; ?><?php echo $category['name']; ?></a>
+                                    </div>
+                                </li>
+                            <?php } else { ?>
+                                <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
+                                </li>
+
+                                <li>
+                                    <a  href="<?php echo $category['href']; ?>">
+                                            CONTAKTS
+                                    </a >
+                                </li>
                             <?php } ?>
-                        </ul>
-<!--                    </div>-->
+                        <?php } ?>
+
+                    </ul>
+
                 </div>
             </nav>
         </div>

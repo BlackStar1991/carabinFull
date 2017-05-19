@@ -48,10 +48,16 @@
   </div>
   <div class="box-content">
     <?php if ($manufacturers) { ?>
-      <ul class="nav nav-tabs nav-stacked">
+      <ul class="nav nav-tabs nav-stacked  my_ocbox__group">                           <!---  Сюда нужен скрипт фильтра по товарам  -->
         <?php foreach ($manufacturers as $manufacturer) { ?>
-          <li>
-            <a href="<?php echo $manufacturer['href']; ?>"><?php echo $manufacturer['name']; ?></a>
+          <li class="my_ocbox__item">
+
+
+              <input  class="my_ocbox__checkbox" type="checkbox">
+                  <a href="<?php echo $manufacturer['href']; ?>"><?php echo $manufacturer['name']; ?></a>
+
+              <span class="my_ocbox__fullQuantityItemss">(777)</span>             <!---  Сюда нужен скрипт количество товаров с одинаковой маркой  -->
+
           </li>
         <?php } ?>
       </ul>
@@ -61,7 +67,7 @@
 <?php } else { ?>
 <div class="ocbbox">
   <div class="box-heading">
-<!--      <span class="my_title__name">--><?php //echo $heading_title; ?><!--</span>   <!---  КАК ПОВЕСИТЬ СКРИПТ под HTML? или нет -->
+<!--      <span class="my_title__name">--><?php //echo $heading_title; ?>
       <span class="my_title__name">ПРОИЗВОДИТЕЛЬ</span>
   </div>
   <div class="box-content">
@@ -76,3 +82,4 @@
   </div>
 </div>
 <?php } ?>
+

@@ -168,9 +168,14 @@ class ControllerProductCategory extends Controller {
 					'filter_category_id'  => $result['category_id'],
 					'filter_sub_category' => true
 				);
+				
+				$image = $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_category_width'), $this->config->get($this->config->get('config_theme') . '_image_category_height'));
+				
 
 				$data['categories'][] = array(
 					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
+					'thumb'        => $image,
+					'product_total' => $this->model_catalog_product->getTotalProducts($filter_data),
 					'href' => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url)
 				);
 			}
