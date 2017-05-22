@@ -585,7 +585,7 @@ class PHPExcel_Shared_String
             return iconv_substr($pValue, $pStart, $pLength, 'UTF-8');
         }
 
-        // else substr
+         else substr;               /////////////////////  Правленное раскоментировал строку
         return substr($pValue, $pStart, $pLength);
     }
 
