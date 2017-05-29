@@ -53,8 +53,9 @@
 
                                                 <span class="my_categore__quantityElements"><?php echo $category['product_total']; ?>  </span>
                                             </div>
-                                            <?php } ?><p
-                                                    class="my_categore__subcategoryName"><?php echo $category['name']; ?></p>
+                                            <?php } ?>
+                                            <p class="my_categore__subcategoryName"><?php echo $category['name']; ?></p>
+
 
                                         </a>
                                     </li>
@@ -67,10 +68,22 @@
                     <div class="row">
                         <?php foreach (array_chunk($categories, ceil(count($categories) / 4)) as $categories) { ?>
                             <div class="col-sm-3">
-                                <ul>
+                                <ul class="my_categore__allElements clearfix">
                                     <?php foreach ($categories as $category) { ?>
-                                        <li>
-                                            <a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
+                                        <li class="my_categore__element">
+                                            <a class="my_categore__elementWrapper" href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?>
+
+                                            <div class="my_categore__imageBlock">
+                                               <img class="my_categore__image" src="<?php echo $category['thumb']; ?>"
+                                                                               alt="<?php echo $category['name']; ?>"/>
+
+                                <span class="my_categore__quantityElements"><?php echo $category['product_total']; ?>  </span>
+                            </div>
+
+                        <p class="my_categore__subcategoryName"><?php echo $category['name']; ?></p>
+
+
+                                            </a>
                                         </li>
                                     <?php } ?>
                                 </ul>
@@ -184,24 +197,10 @@
                                             </p>
                                         <?php } ?>
 
-                                        <div class="my_product-line__data">            <!-- вставить модуль -->
+                                        <div class="my_product-line__data">            <!-- вставить модуль проверки на наличие товара -->
                                             <span>В наличии</span>
                                         </div>
 
-
-                                        <!--                                        --><?php //if ($product['rating']) { ?>
-                                        <!--                                            <div class="rating">-->
-                                        <!--                                                --><?php //for ($i = 1; $i <= 5; $i++) { ?>
-                                        <!--                                                    --><?php //if ($product['rating'] < $i) { ?>
-                                        <!--                                                        <span class="fa fa-stack"><i-->
-                                        <!--                                                                    class="fa fa-star-o fa-stack-2x"></i></span>-->
-                                        <!--                                                    --><?php //} else { ?>
-                                        <!--                                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i-->
-                                        <!--                                                                    class="fa fa-star-o fa-stack-2x"></i></span>-->
-                                        <!--                                                    --><?php //} ?>
-                                        <!--                                                --><?php //} ?>
-                                        <!--                                            </div>-->
-                                        <!--                                        --><?php //} ?>
                                     </div>
 
                                     <!--                                    <div class="button-group">-->
@@ -211,7 +210,7 @@
                                     <!--                                    </div>-->
 
 
-                                
+
                             </div>
                         </div>
                     <?php } ?>
@@ -260,6 +259,8 @@
 
 
             <?php } ?>
+
+
             <?php if (!$categories && !$products) { ?>
                 <p><?php echo $text_empty; ?></p>
 
@@ -269,6 +270,9 @@
                                                class="btn btn-primary"><?php echo $button_continue; ?></a></div>
                 </div>
             <?php } ?>
+
+
+
             <?php echo $content_bottom; ?></div>
         <?php echo $column_right; ?></div>
 </div>

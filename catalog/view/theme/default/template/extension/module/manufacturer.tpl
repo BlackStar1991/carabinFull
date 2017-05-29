@@ -53,14 +53,19 @@
           <li class="my_ocbox__item">
 
 
-              <input  class="my_ocbox__checkbox" type="checkbox">
+<!--              <input  class="my_ocbox__checkbox" type="checkbox">-->
                   <a href="<?php echo $manufacturer['href']; ?>"><?php echo $manufacturer['name']; ?></a>
 
-              <span class="my_ocbox__fullQuantityItemss">(777)</span>             <!---  Сюда нужен скрипт количество товаров с одинаковой маркой  -->
+ <!--             <span class="my_ocbox__fullQuantityItemss">(777)</span>      -->       <!---  Сюда нужен скрипт количество товаров с одинаковой маркой  -->
 
           </li>
+
         <?php } ?>
+
       </ul>
+        <button class="my_ocbox__fullManufacturers">Показать все</button>      <!-- сюда нужен скрипт который будет показывать кнопку при услокии что производителей >10 На класах весит JS скрипт-->
+
+
     <?php } ?>
   </div>
 </div>

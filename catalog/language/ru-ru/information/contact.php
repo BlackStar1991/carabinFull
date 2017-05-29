@@ -1,16 +1,16 @@
 <?php
 // Heading
-$_['heading_title']  = 'Связаться с нами';
+$_['heading_title']  = 'Контакты';
 
 // Text
-$_['text_location']  = 'Наш адрес';
+$_['text_location']  = 'Наш адрес:';
 $_['text_store']     = 'Наши магазины';
-$_['text_contact']   = 'Форма связи';
-$_['text_address']   = 'Адрес';
-$_['text_telephone'] = 'Телефон';
+$_['text_contact']   = 'Форма связи:';
+$_['text_address']   = 'Адрес:';
+$_['text_telephone'] = 'Телефон:';
 $_['text_fax']       = 'Факс';
 $_['text_open']      = 'Время работы';
-$_['text_comment']   = 'Комментарий';
+$_['text_comment']   = 'Email:';
 $_['text_success']   = '<p>Ваш запрос был успешно отправлен администрации магазина!</p>';
 
 // Entry

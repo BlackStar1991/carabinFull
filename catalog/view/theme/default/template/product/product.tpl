@@ -24,16 +24,30 @@
                         <!-- КАРТИНКИ -->
                         <ul class="thumbnails">
                             <?php if ($thumb) { ?>
-                                <li><a class="thumbnail" href="<?php echo $popup; ?>"
-                                       title="<?php echo $heading_title; ?>"><img
+                                <li>
+
+
+                                    <a class="thumbnail my_thumbnail__block" href="<?php echo $popup; ?>"
+                                       title="<?php echo $heading_title; ?>">
+
+                                        <img
                                                 src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>"
-                                                alt="<?php echo $heading_title; ?>"/></a></li>
+                                                alt="<?php echo $heading_title; ?>"/>
+
+
+                                        <?php if ($special) { ?>  <span class="my_special__string">Распродажа</span> <?php } ?>
+                                    </a>
+
+
+
+                                </li>
                             <?php } ?>
                             <?php if ($images) { ?>
                                 <?php foreach ($images as $image) { ?>
                                     <li class="image-additional"><a class="thumbnail"
                                                                     href="<?php echo $image['popup']; ?>"
-                                                                    title="<?php echo $heading_title; ?>"> <img
+                                                                    title="<?php echo $heading_title; ?>">
+                                            <img
                                                     src="<?php echo $image['thumb']; ?>"
                                                     title="<?php echo $heading_title; ?>"
                                                     alt="<?php echo $heading_title; ?>"/></a></li>
@@ -46,9 +60,12 @@
                 </div>
                 <div class="col-xs-12 col-md-9">
                     <div class="wrappenElements">
-                        <ul class="list-unstyled">
-                            <li><?php echo $text_stock; ?><?php echo $stock; ?></li>
-                        </ul>
+                        <div class="list-unstyled">
+                            <span><?php echo $text_stock; ?> <?php echo $stock; ?></span>
+                            <span><?php echo $text_model; ?> <?php echo $model; ?></span>
+
+
+                        </div>
                         <hr>
 
                         <?php if ($price) { ?>

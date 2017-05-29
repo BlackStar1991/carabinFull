@@ -510,6 +510,33 @@ $('document').ready(function(){
         my_modal__callback=$("#my_modal__callback"),
         allModalWindows = $(".modal");
 
+    var allNavigationItem = $(".my_navigation ul li > a"),
+        activeNavigationItem = $(".menu_item__active");
+
+
+
+    // Colorize navigation items
+
+function activeButtonTopMenu() {
+    var url=document.location.href;
+
+    allNavigationItem.on("click", function () {
+        
+        allNavigationItem.removeClass("menu_item__active");
+        $.each(allNavigationItem,function(){
+            if(this.href==url){$(this).addClass('menu_item__active');}
+        });
+    });
+
+
+} activeButtonTopMenu();
+
+
+
+
+
+
+
 
 
     // SHOW MODAL WINDOW
@@ -532,9 +559,6 @@ $('document').ready(function(){
             allModalWindows.addClass("hide");
         })
     }
-    // addHideClassForMapModalWindow(my_modal__map);
-    // addHideClassForMapModalWindow(my_modal__callback);
-
 
     addHideClassForMapModalWindow(closeButton);
     addHideClassForMapModalWindow(allModalWindows);
@@ -552,6 +576,49 @@ $('document').ready(function(){
     }
     showHideElement(blockTelephonesFirstLine, blockTelephonesFullBlock);
     showHideElement(blockTelephonesFullBlock, blockTelephonesFullBlock);
+
+
+
+
+    // button show manufactures
+
+    var fullManufacturers = $(".my_ocbox__fullManufacturers"),
+        manufacturersFild = $(".my_ocbox__group");
+
+
+        function showAllManufacturers() {
+
+            var current = 0;
+
+            fullManufacturers.on("click", function(){
+
+                if (current++ % 2 == 0){
+                    manufacturersFild.css({"height": "auto"});
+                    fullManufacturers.text("Скрыть");
+                } else{
+                    manufacturersFild.css({"height": "385"});
+                    fullManufacturers.text("Показать все");
+                }
+
+        });
+
+
+        } showAllManufacturers();
+
+
+
+    /// work with contactMap
+
+    $('.my_contact__overlayMap').click(function() {
+        $(this).remove();
+    });
+
+
+
+
+
+
+
 
 
 

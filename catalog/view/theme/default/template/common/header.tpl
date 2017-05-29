@@ -136,7 +136,7 @@
             <div class="col-xs-12 col-sm-6">
                 <div class="header_logoBox">
                     <div class="companyName">
-                        <div class="companyName_wrapper">
+                        <a href="/">                 <!--- class="companyName_wrapper" -->
                             <?php if ($logo) { ?>
                                 <?php if ($home == $og_url) { ?>
                                     <img src="<?php echo $logo; ?>" title="<?php echo $name; ?>"
@@ -152,7 +152,7 @@
                                 <h1><a href="<?php echo $home; ?>"><?php echo $name; ?></a></h1>
                             <?php } ?>
                             <h2 class="companyName_motto">снаряжение для экстремального спорта и отдыха</h2>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
@@ -192,11 +192,14 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse my_navigation">
 
                     <ul class="nav navbar-nav">
+
+                        <li><a class="menu_item__active" href="/"> Главная </a > </li>
+
+
                         <?php foreach ($categories as $category) { ?>
                             <?php if ($category['children']) { ?>
                                 <li class="dropdown"><a href="<?php echo $category['href']; ?>"
-                                                        class="dropdown-toggle"
-                                                        data-toggle="dropdown"><?php echo $category['name']; ?></a>
+                                                        class="dropdown-toggle"><?php echo $category['name']; ?></a>
                                     <div class="dropdown-menu">
                                         <div class="dropdown-inner">
                                             <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
@@ -213,18 +216,21 @@
                                            class="see-all"><?php echo $text_all; ?><?php echo $category['name']; ?></a>
                                     </div>
                                 </li>
+
+
+
+
+
                             <?php } else { ?>
-                                <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
-                                </li>
+                                <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
 
-                                <li>
-                                    <a  href="<?php echo $category['href']; ?>">
-                                            CONTAKTS
-                                    </a >
-                                </li>
+
                             <?php } ?>
-                        <?php } ?>
 
+                        <?php } ?>
+                        <li><a  href="contact-us"> КОНТАКТЫ </a ></li>
+                        <li><a  href="delivery"> Доставка и оплата</a ></li>
+                        <li><a  href="specials"> Распродажа </a > </li>
                     </ul>
 
                 </div>
