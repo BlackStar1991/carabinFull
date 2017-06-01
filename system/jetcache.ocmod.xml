@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Jet Cache</name>
+    <version>4.0</version>
+    <vqmver required="true">2.4.0</vqmver>
+    <author>admin@opencartadmin.com</author>
+    <code>jetcache</code>
+    <link>http://opencartadmin.com</link>
+
+<file path="system/library/db.php" error="skip">
+    <operation error="skip">
+        <search  position="after"><![CDATA[class DB {]]></search>
+        <add position="after"><![CDATA[
+	private $sc_jetcache_query_count = 0;
+]]></add>
+    </operation>
+    <operation error="skip">
+        <search regex="true" position="replace"><![CDATA[~(.*?)function query[(](.*?)\{~]]></search>
+        <add position="replace"><![CDATA[
+	public function get_sc_jetcache_query_count() {		return $this->sc_jetcache_query_count;
+	}
+
+$1function query($2{
+	$this->sc_jetcache_query_count++;
+
+]]></add>
+    </operation>
+</file>
+
+<file path="system/library/response.php" error="skip">
+    <operation error="skip">
+        <search position="after"><![CDATA[echo $output;]]></search>
+        <add position="after"><![CDATA[
+			if (is_callable(array($this->seocms_registry, 'get')) && $this->seocms_registry->get('seocms_jetcache_alter')) {
+				$this->seocms_registry->get('controller_jetcache_jetcache')->jetcache_construct();
+		        if (!$this->seocms_registry->get('jetcache_output')) {
+					$this->seocms_registry->get('controller_jetcache_jetcache')->to_cache_output('output', $this->seocms_registry->get('header_flag_json'));
+				}
+			}
+    ]]></add>
+    </operation>
+    <operation error="skip">
+        <search position="after"><![CDATA[private $output;]]></search>
+        <add position="after"><![CDATA[
+	private $seocms_registry = Array();
+    ]]></add>
+    </operation>
+    <operation error="skip">
+        <search position="before"><![CDATA[public function addHeader]]></search>
+        <add position="before"><![CDATA[
+ 	public function seocms_setRegistry($registry) {
+		$this->seocms_registry = $registry;
+	}
+    ]]></add>
+    </operation>
+</file>
+
+</modification>

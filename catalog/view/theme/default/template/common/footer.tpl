@@ -56,44 +56,24 @@
 
         </div>
         <!--    <hr>-->
-        <!--    <p>--><?php //echo $powered; ?><!--</p>-->
+       
     </div>
 
-    <div id="my_modal__callback" class="modal hide fade"> <!-- id="oneclick"*/ -->
-        <div class="my_modal__window">
-            <button type="button" class="close my_button_close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3><span class="glyphicon glyphicon-phone"></span><?php echo $text_one_click_header; ?></h3>
-            <div class="input-group">
-                <input type="text" name="telephone" value=""
-                       placeholder="<?php echo $text_one_click_placeholder; ?>"
-                       id="input-payment-telephone" class="form-control">
-                <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
-                <span class="input-group-btn">
-                    <button type="submit" id="button-oneclick"
-                            class="btn btn-primary"><?php echo $text_one_click_button; ?></button>
-                </span>
-            </div>
-            <span class="help-block"><?php echo $text_one_click_help; ?></span>
-        </div>
-        <script src="catalog/view/javascript/jquery.maskedinput.min.js"
-                type="text/javascript"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $("#input-payment-telephone").mask("<?php echo $text_one_click_mask; ?>", {placeholder: " "});
-            });
-        </script>
-    </div>
+	
+	
 
-    </div>
+
+    
 
 
 </footer>
 
-<!--
-OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
-Please donate via PayPal to donate@opencart.com
-//-->
-
-<!-- Theme created by Welford Media for OpenCart 2.0 www.welfordmedia.co.uk -->
+    <div id="callbackModal" class="modal " role="dialog">
+        <div class="modal-dialog">
+				<h3><span class="glyphicon glyphicon-phone"></span>Заказать звонок</h3>
+				   <input type="text" name="telephone" value="" placeholder="050 333 33 33"
+						   id="input-payment-telephone" class="form-control">
+        </div>
+    </div>
 
 </body></html>

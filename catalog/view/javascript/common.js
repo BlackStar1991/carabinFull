@@ -614,9 +614,25 @@ function activeButtonTopMenu() {
     });
 
 
+//        SLIDER FOR  image-additional
 
-
-
+    // window.onload = function(){
+    //
+    //     function additionalSlider() {
+    //         var slider = $(".my_image-additional__slider");
+    //         var itemSlider = $(".image-additional");
+    //
+    //         slider.on("click", function(){
+    //             console.log("OK")
+    //         });
+    //
+    //         slider.owlCarousel({
+    //             loop: true,
+    //             responsiveClass:true
+    //         });
+    //
+    //     }additionalSlider();
+    // }
 
 
 

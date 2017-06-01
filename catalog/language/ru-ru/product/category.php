@@ -6,7 +6,7 @@ $_['text_error']        = 'Категория не найдена!';
 $_['text_empty']        = 'В этой категории нет товаров.';
 $_['text_quantity']     = 'Кол-во:';
 $_['text_manufacturer'] = 'Производитель:';
-$_['text_model']        = 'Код товара:';
+$_['text_model']        = 'Код:';
 $_['text_points']       = 'Бонусные баллы:';
 $_['text_price']        = 'Цена:';
 $_['text_tax']          = 'Без налога:';
@@ -22,3 +22,8 @@ $_['text_rating_desc']  = 'По рейтингу (убыванию)';
 $_['text_model_asc']    = 'По модели (A - Я)';
 $_['text_model_desc']   = 'По модели (Я - A)';
 $_['text_limit']        = 'Показывать:';
+$_['text_stock']        = 'Доступность:';
+$_['text_instock']      = 'На складе';
+$_['text_outstock']     = 'Нет в наличии';
+$_['text_minstock']     = 'На складе';
+

@@ -3,11 +3,11 @@
 $_['text_search']                             = 'Поиск';
 $_['text_brand']                              = 'Производитель';
 $_['text_manufacturer']                       = 'Производитель:';
-$_['text_model']                              = 'Код товара:';
+$_['text_model']                              = 'Код:';
 $_['text_reward']                             = 'Бонусные баллы:';
 $_['text_points']                             = 'Цена в бонусных баллах:';
 $_['text_stock']                              = 'Доступность:';
-$_['text_instock']                            = 'На складе';
+$_['text_instock']                            = 'В наличии';
 $_['text_tax']                                = 'Без НДС:';
 $_['text_discount']                           = ' или более ';
 $_['text_option']                             = 'Доступные опции';

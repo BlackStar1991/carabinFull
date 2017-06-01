@@ -43,15 +43,28 @@
                                 </li>
                             <?php } ?>
                             <?php if ($images) { ?>
+
+                                <ul class="my_image-additional__slider ">   <!-- owl-carousel -->
                                 <?php foreach ($images as $image) { ?>
-                                    <li class="image-additional"><a class="thumbnail"
+
+                                    <li class="image-additional owl-item">
+
+                                        <a class="thumbnail"
                                                                     href="<?php echo $image['popup']; ?>"
                                                                     title="<?php echo $heading_title; ?>">
                                             <img
                                                     src="<?php echo $image['thumb']; ?>"
                                                     title="<?php echo $heading_title; ?>"
-                                                    alt="<?php echo $heading_title; ?>"/></a></li>
+                                                    alt="<?php echo $heading_title; ?>"/>
+
+                                        </a>
+
+                                    </li>
+
                                 <?php } ?>
+
+
+                                </ul>
                             <?php } ?>
                         </ul>
                     <?php } ?>
@@ -60,13 +73,14 @@
                 </div>
                 <div class="col-xs-12 col-md-9">
                     <div class="wrappenElements">
-                        <div class="list-unstyled">
-                            <span><?php echo $text_stock; ?> <?php echo $stock; ?></span>
+                        <div class="list-unstyled my_list-unstyled__stock">
+                            <span><?php echo $stock; ?></span>
                             <span><?php echo $text_model; ?> <?php echo $model; ?></span>
-
-
                         </div>
                         <hr>
+
+
+
 
                         <?php if ($price) { ?>
                             <ul class="list-unstyled">
@@ -386,10 +400,7 @@
                                             <br/>
 
 
-                                            <button type="button" id="button-cart" data-loading-text="
-                        <?php echo $text_loading; ?>"
-                                                    class="btn my_product__buyButton">
-                                                <?php echo $button_cart; ?></button>
+                                            <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn my_product__buyButton"><?php echo $button_cart; ?></button>
                                         </div>
                                         <?php if ($minimum > 1) { ?>
                                             <div class="alert alert-info"><i
@@ -398,12 +409,13 @@
                                         <?php } ?>
                                     </div>
                                 </li>
-                                <li>
-                                    <button class="my_callback__button my_callback__buttonForProduct">
-                                        <span>Позвоните мне</span>
-                                    </button>
+                                <li class="my_callback__button">
+                                    <button class="my_callback__buttonForProduct">
+                                        <span>Перезвоните мне</span>
 
+                                    </button>
                                 </li>
+
                                 <!--       TELEPHONES     -->
                                 <li>
                                     <div class="blockTelephones">
@@ -421,7 +433,7 @@
                                 <li>
                                     <div class="blockLinks">
                                         <div class="blockLinks_wrappen">
-                                            <a class="blockLinks_item" href="#">Условия доставки</a>
+                                            <a class="blockLinks_item" href="/delivery" target="_blank">Условия доставки</a>
                                             <a class="blockLinks_item" href="#">График работы</a>
                                             <a class="blockLinks_item" href="#">Адрес и контакты</a>
                                             <a class="blockLinks_item" href="#">Условия возврата и обмена</a>
@@ -491,10 +503,15 @@
                     <div class="col-sm-12">
                         <!-- TABS -->
 
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="tab-description">
-                                <?php echo $description; ?></div>
+                        <div >
+							<div class="description">
+                                <?php echo $description; ?>
+							</div>
                             <?php if ($attribute_groups) { ?>
+
+                                <div class="my_attribute__title">
+                                    Характеристики
+                                </div>
                                 <table class="table table-bordered">
                                     <?php foreach ($attribute_groups as $attribute_group) { ?>
                                         <thead>
@@ -680,6 +697,29 @@
 
 </div>
 </div>
+
+<script type="text/javascript">
+
+//    window.onload = function(){
+//
+//        function additionalSlider() {
+//              var slider = $(".my_image-additional__slider");
+//            var itemSlider = $(".image-additional");
+//
+//            slider.on("click", function(){
+//                console.log("OK")
+//            });
+//
+//            slider.owlCarousel({
+//                loop: true,
+//                responsiveClass:true
+//            });
+//
+//        }additionalSlider();
+//    }
+
+</script>
+
 
 
 <script type="text/javascript"><!--

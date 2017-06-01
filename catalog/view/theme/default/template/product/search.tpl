@@ -1,116 +1,259 @@
 <?php echo $header; ?>
-<div class="container">
-  <ul class="breadcrumb">
-    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-    <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-    <?php } ?>
-  </ul>
-  <div class="row"><?php echo $column_left; ?>
-    <?php if ($column_left && $column_right) { ?>
-    <?php $class = 'col-sm-6'; ?>
-    <?php } elseif ($column_left || $column_right) { ?>
-    <?php $class = 'col-sm-9'; ?>
-    <?php } else { ?>
-    <?php $class = 'col-sm-12'; ?>
-    <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?></h1>
-      <label class="control-label" for="input-search"><?php echo $entry_search; ?></label>
-      <div class="row">
-        <div class="col-sm-4">
-          <input type="text" name="search" value="<?php echo $search; ?>" placeholder="<?php echo $text_keyword; ?>" id="input-search" class="form-control" />
-        </div>
-        <div class="col-sm-3">
-          <select name="category_id" class="form-control">
-            <option value="0"><?php echo $text_category; ?></option>
-            <?php foreach ($categories as $category_1) { ?>
-            <?php if ($category_1['category_id'] == $category_id) { ?>
-            <option value="<?php echo $category_1['category_id']; ?>" selected="selected"><?php echo $category_1['name']; ?></option>
+    <div class="container">
+        <ul class="breadcrumb">
+            <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+                <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+            <?php } ?>
+        </ul>
+        <div class="row"><?php echo $column_left; ?>
+            <?php if ($column_left && $column_right) { ?>
+                <?php $class = 'col-sm-6'; ?>
+            <?php } elseif ($column_left || $column_right) { ?>
+                <?php $class = 'col-sm-9'; ?>
             <?php } else { ?>
-            <option value="<?php echo $category_1['category_id']; ?>"><?php echo $category_1['name']; ?></option>
+                <?php $class = 'col-sm-12'; ?>
             <?php } ?>
-            <?php foreach ($category_1['children'] as $category_2) { ?>
-            <?php if ($category_2['category_id'] == $category_id) { ?>
-            <option value="<?php echo $category_2['category_id']; ?>" selected="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $category_2['name']; ?></option>
-            <?php } else { ?>
-            <option value="<?php echo $category_2['category_id']; ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $category_2['name']; ?></option>
-            <?php } ?>
-            <?php foreach ($category_2['children'] as $category_3) { ?>
-            <?php if ($category_3['category_id'] == $category_id) { ?>
-            <option value="<?php echo $category_3['category_id']; ?>" selected="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $category_3['name']; ?></option>
-            <?php } else { ?>
-            <option value="<?php echo $category_3['category_id']; ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $category_3['name']; ?></option>
-            <?php } ?>
-            <?php } ?>
-            <?php } ?>
-            <?php } ?>
-          </select>
-        </div>
-        <div class="col-sm-3">
-          <label class="checkbox-inline">
-            <?php if ($sub_category) { ?>
-            <input type="checkbox" name="sub_category" value="1" checked="checked" />
-            <?php } else { ?>
-            <input type="checkbox" name="sub_category" value="1" />
-            <?php } ?>
-            <?php echo $text_sub_category; ?></label>
-        </div>
-      </div>
-      <p>
-        <label class="checkbox-inline">
-          <?php if ($description) { ?>
-          <input type="checkbox" name="description" value="1" id="description" checked="checked" />
-          <?php } else { ?>
-          <input type="checkbox" name="description" value="1" id="description" />
-          <?php } ?>
-          <?php echo $entry_description; ?></label>
-      </p>
-      <input type="button" value="<?php echo $button_search; ?>" id="button-search" class="btn btn-primary" />
-      <h2><?php echo $text_search; ?></h2>
-      <?php if ($products) { ?>
-      <div class="row">
-        <div class="col-md-2 col-sm-6 hidden-xs">
-          <div class="btn-group btn-group-sm">
-            <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_list; ?>"><i class="fa fa-th-list"></i></button>
-            <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_grid; ?>"><i class="fa fa-th"></i></button>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="form-group">
-            <a href="<?php echo $compare; ?>" id="compare-total" class="btn btn-link"><?php echo $text_compare; ?></a>
-          </div>
-        </div>
-        <div class="col-md-4 col-xs-6">
-          <div class="form-group input-group input-group-sm">
-            <label class="input-group-addon" for="input-sort"><?php echo $text_sort; ?></label>
-            <select id="input-sort" class="form-control" onchange="location = this.value;">
-              <?php foreach ($sorts as $sorts) { ?>
-              <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
-              <option value="<?php echo $sorts['href']; ?>" selected="selected"><?php echo $sorts['text']; ?></option>
-              <?php } else { ?>
-              <option value="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></option>
-              <?php } ?>
-              <?php } ?>
-            </select>
-          </div>
-        </div>
-        <div class="col-md-3 col-xs-6">
-          <div class="form-group input-group input-group-sm">
-            <label class="input-group-addon" for="input-limit"><?php echo $text_limit; ?></label>
-            <select id="input-limit" class="form-control" onchange="location = this.value;">
-              <?php foreach ($limits as $limits) { ?>
-              <?php if ($limits['value'] == $limit) { ?>
-              <option value="<?php echo $limits['href']; ?>" selected="selected"><?php echo $limits['text']; ?></option>
-              <?php } else { ?>
-              <option value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
-              <?php } ?>
-              <?php } ?>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <?php foreach ($products as $product) { ?>
+            <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+                <h1><?php echo $heading_title; ?></h1>
+                <label class="control-label" for="input-search"><?php echo $entry_search; ?></label>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input type="text" name="search" value="<?php echo $search; ?>"
+                               placeholder="<?php echo $text_keyword; ?>" id="input-search" class="form-control"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <select name="category_id" class="form-control">
+                            <option value="0"><?php echo $text_category; ?></option>
+                            <?php foreach ($categories as $category_1) { ?>
+                                <?php if ($category_1['category_id'] == $category_id) { ?>
+                                    <option value="<?php echo $category_1['category_id']; ?>"
+                                            selected="selected"><?php echo $category_1['name']; ?></option>
+                                <?php } else { ?>
+                                    <option value="<?php echo $category_1['category_id']; ?>"><?php echo $category_1['name']; ?></option>
+                                <?php } ?>
+                                <?php foreach ($category_1['children'] as $category_2) { ?>
+                                    <?php if ($category_2['category_id'] == $category_id) { ?>
+                                        <option value="<?php echo $category_2['category_id']; ?>" selected="selected">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $category_2['name']; ?></option>
+                                    <?php } else { ?>
+                                        <option value="<?php echo $category_2['category_id']; ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $category_2['name']; ?></option>
+                                    <?php } ?>
+                                    <?php foreach ($category_2['children'] as $category_3) { ?>
+                                        <?php if ($category_3['category_id'] == $category_id) { ?>
+                                            <option value="<?php echo $category_3['category_id']; ?>"
+                                                    selected="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $category_3['name']; ?></option>
+                                        <?php } else { ?>
+                                            <option value="<?php echo $category_3['category_id']; ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $category_3['name']; ?></option>
+                                        <?php } ?>
+                                    <?php } ?>
+                                <?php } ?>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        <label class="checkbox-inline">
+                            <?php if ($sub_category) { ?>
+                                <input type="checkbox" name="sub_category" value="1" checked="checked"/>
+                            <?php } else { ?>
+                                <input type="checkbox" name="sub_category" value="1"/>
+                            <?php } ?>
+                            <?php echo $text_sub_category; ?></label>
+                    </div>
+                </div>
+                <p>
+                    <label class="checkbox-inline">
+                        <?php if ($description) { ?>
+                            <input type="checkbox" name="description" value="1" id="description" checked="checked"/>
+                        <?php } else { ?>
+                            <input type="checkbox" name="description" value="1" id="description"/>
+                        <?php } ?>
+                        <?php echo $entry_description; ?></label>
+                </p>
+                <input type="button" value="<?php echo $button_search; ?>" id="button-search" class="btn btn-primary"/>
+                <h2><?php echo $text_search; ?></h2>
+                <?php if ($products) { ?>
+                    <div class="row">
+
+
+                        <!--Sorter Group-->
+                        <!--          <div class="col-xs-12 col-sm-6">-->
+                        <!--              <div class="form-group input-group input-group-sm my_sorter__form">-->
+                        <!--                  <label class="input-group-addon" for="input-sort">-->
+                        <?php //echo $text_sort; ?><!--</label>-->
+                        <!--                  <select id="input-sort" class="form-control my_sorter__form-control"-->
+                        <!--                          onchange="location = this.value;">-->
+                        <!--                      --><?php //foreach ($sorts as $sorts) { ?>
+                        <!--                          --><?php //if ($sorts['value'] == $sort . '-' . $order) { ?>
+                        <!--                              <option value="--><?php //echo $sorts['href']; ?><!--"-->
+                        <!--                                      selected="selected">-->
+                        <?php //echo $sorts['text']; ?><!--</option>-->
+                        <!--                          --><?php //} else { ?>
+                        <!--                              <option value="--><?php //echo $sorts['href']; ?><!--">-->
+                        <?php //echo $sorts['text']; ?><!--</option>-->
+                        <!--                          --><?php //} ?>
+                        <!--                      --><?php //} ?>
+                        <!--                  </select>-->
+                        <!--              </div>-->
+                        <!--          </div>-->
+
+                        <!--Buttons sorter-->
+                        <div class="col-sm-12 hidden-xs">
+                            <div class="btn-group btn-group-sm my_sorter__group">
+                                <button type="button" id="list-view" class="btn btn-default " data-toggle="tooltip"
+                                        title="<?php echo $button_list; ?>"><i
+                                            class="fa fa-th-list my_sorter__button"></i>
+                                </button>
+                                <button type="button" id="grid-view" class="btn btn-default " data-toggle="tooltip"
+                                        title="<?php echo $button_grid; ?>"><i class="fa fa-th my_sorter__button"></i>
+                                </button>
+                            </div>
+                        </div>
+
+
+                        <!--        <div class="col-md-2 col-sm-6 hidden-xs">-->
+                        <!--          <div class="btn-group btn-group-sm">-->
+                        <!--            <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="-->
+                        <?php //echo $button_list; ?><!--"><i class="fa fa-th-list"></i></button>-->
+                        <!--            <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="-->
+                        <?php //echo $button_grid; ?><!--"><i class="fa fa-th"></i></button>-->
+                        <!--          </div>-->
+                        <!--        </div>-->
+                        <!--        <div class="col-md-3 col-sm-6">-->
+                        <!--          <div class="form-group">-->
+                        <!--            <a href="-->
+                        <?php //echo $compare; ?><!--" id="compare-total" class="btn btn-link">-->
+                        <?php //echo $text_compare; ?><!--</a>-->
+                        <!--          </div>-->
+                        <!--        </div>-->
+                        <!--        <div class="col-md-4 col-xs-6">-->
+                        <!--          <div class="form-group input-group input-group-sm">-->
+                        <!--            <label class="input-group-addon" for="input-sort">-->
+                        <?php //echo $text_sort; ?><!--</label>-->
+                        <!--            <select id="input-sort" class="form-control" onchange="location = this.value;">-->
+                        <!--              --><?php //foreach ($sorts as $sorts) { ?>
+                        <!--              --><?php //if ($sorts['value'] == $sort . '-' . $order) { ?>
+                        <!--              <option value="--><?php //echo $sorts['href']; ?><!--" selected="selected">-->
+                        <?php //echo $sorts['text']; ?><!--</option>-->
+                        <!--              --><?php //} else { ?>
+                        <!--              <option value="--><?php //echo $sorts['href']; ?><!--">-->
+                        <?php //echo $sorts['text']; ?><!--</option>-->
+                        <!--              --><?php //} ?>
+                        <!--              --><?php //} ?>
+                        <!--            </select>-->
+                        <!--          </div>-->
+                        <!--        </div>-->
+                        <!--        <div class="col-md-3 col-xs-6">-->
+                        <!--          <div class="form-group input-group input-group-sm">-->
+                        <!--            <label class="input-group-addon" for="input-limit">-->
+                        <?php //echo $text_limit; ?><!--</label>-->
+                        <!--            <select id="input-limit" class="form-control" onchange="location = this.value;">-->
+                        <!--              --><?php //foreach ($limits as $limits) { ?>
+                        <!--              --><?php //if ($limits['value'] == $limit) { ?>
+                        <!--              <option value="-->
+                        <?php //echo $limits['href']; ?><!--" selected="selected">-->
+                        <?php //echo $limits['text']; ?><!--</option>-->
+                        <!--              --><?php //} else { ?>
+                        <!--              <option value="--><?php //echo $limits['href']; ?><!--">-->
+                        <?php //echo $limits['text']; ?><!--</option>-->
+                        <!--              --><?php //} ?>
+                        <!--              --><?php //} ?>
+                        <!--            </select>-->
+                        <!--          </div>-->
+                        <!--        </div>-->
+
+                    </div>
+
+
+                    <div class="row">
+
+
+                        <?php foreach ($products as $product) { ?>
+                            <div class="product-layout product-list col-xs-12">
+
+
+                                <div class="product-thumb">
+
+                                    <div class="image my_product clearfix">
+
+
+                                        <a class="my_product__imageWrappen" href="<?php echo $product['href']; ?>">
+
+
+                                            <img src="<?php echo $product['thumb']; ?>"
+                                                 alt="<?php echo $product['name']; ?>"
+                                                 title="<?php echo $product['name']; ?>"
+
+                                                 class="img-responsive my_product__imagePhoto"/>
+
+
+                                            <?php if ($product['special']) { ?>  <span class="my_special__string">Распродажа</span> <?php } ?>
+                                        </a>
+
+
+                                        <div class="my_product__contactButtons">
+
+                                            <button class="my_product__buyLink"
+                                                    onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');">
+                                                <span class="hidden-xs my_product__buyButton"><?php echo $button_cart; ?></span>
+                                            </button>
+
+                                            <button class="my_product__callbackLink" href="#">
+                                                <span class="my_product__callbackButton my_callback__button"></span>
+                                                <p class="my_product__callbackButtonDescription">
+                                                    <span>Оставьте свой номер телефона и представитель компании свяжется с вами</span>
+                                                </p>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="caption">
+                                        <h4>
+                                            <a class="my_caption__item"
+                                               href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
+                                        </h4>
+
+                                        <!--   <p class="my_description_product"> <?php //echo $product['description']; ?></p>-->
+
+                                        <?php if ($product['price']) { ?>
+                                            <p class="price my_price__item">
+                                                <?php if (!$product['special']) { ?>
+                                                    <?php echo $product['price']; ?>
+                                                <?php } else { ?>
+                                                    <span class="price-new"><?php echo $product['special']; ?></span>
+
+
+                                                    <span class="price-old"><?php echo $product['price']; ?></span>
+                                                <?php } ?>
+                                                <?php if ($product['tax']) { ?>
+                                                    <span class="price-tax"><?php echo $text_tax; ?><?php echo $product['tax']; ?></span>
+                                                <?php } ?>
+                                            </p>
+                                        <?php } ?>
+
+                                        <div class="my_product-line__data">
+
+                                            <span>В наличии</span>
+                                            <!--           <?php echo $text_stock; ?> <?php echo $stock; ?>   -->
+                                            <!-- вставить модуль проверки на наличие товара заставить это работать -->
+                                        </div>
+
+                                    </div>
+
+                                    <!--                                    <div class="button-group">-->
+                                    <!--         <button class="my_cart__button" type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md my_cart__textNearButton"><?php echo $button_cart; ?></span></button>
+             <button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>
+                <button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>   -->
+                                    <!--                                    </div>-->
+
+
+                                </div>
+
+
+                            </div>
+                        <?php } ?>
+
+
+                        <!--        <?php foreach ($products as $product) { ?>
         <div class="product-layout product-list col-xs-12">
           <div class="product-thumb">
             <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
@@ -151,62 +294,71 @@
           </div>
         </div>
         <?php } ?>
-      </div>
-      <div class="row">
-        <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
-        <div class="col-sm-6 text-right"><?php echo $results; ?></div>
-      </div>
-      <?php } else { ?>
-      <p><?php echo $text_empty; ?></p>
-      <?php } ?>
-      <?php echo $content_bottom; ?></div>
-    <?php echo $column_right; ?></div>
-</div>
-<script type="text/javascript"><!--
-$('#button-search').bind('click', function() {
-	url = 'index.php?route=product/search';
+-->
 
-	var search = $('#content input[name=\'search\']').prop('value');
 
-	if (search) {
-		url += '&search=' + encodeURIComponent(search);
-	}
+                    </div>
 
-	var category_id = $('#content select[name=\'category_id\']').prop('value');
 
-	if (category_id > 0) {
-		url += '&category_id=' + encodeURIComponent(category_id);
-	}
+<!--                    <div class="row">-->
+<!--                        <div class="col-sm-6 text-left">--><?php //echo $pagination; ?><!--</div>-->
+<!--                        <div class="col-sm-6 text-right">--><?php //echo $results; ?><!--</div>-->
+<!--                    </div>-->
 
-	var sub_category = $('#content input[name=\'sub_category\']:checked').prop('value');
 
-	if (sub_category) {
-		url += '&sub_category=true';
-	}
 
-	var filter_description = $('#content input[name=\'description\']:checked').prop('value');
 
-	if (filter_description) {
-		url += '&description=true';
-	}
+                <?php } else { ?>
+                    <p><?php echo $text_empty; ?></p>
+                <?php } ?>
+                <?php echo $content_bottom; ?></div>
+            <?php echo $column_right; ?></div>
+    </div>
+    <script type="text/javascript"><!--
+        $('#button-search').bind('click', function () {
+            url = 'index.php?route=product/search';
 
-	location = url;
-});
+            var search = $('#content input[name=\'search\']').prop('value');
 
-$('#content input[name=\'search\']').bind('keydown', function(e) {
-	if (e.keyCode == 13) {
-		$('#button-search').trigger('click');
-	}
-});
+            if (search) {
+                url += '&search=' + encodeURIComponent(search);
+            }
 
-$('select[name=\'category_id\']').on('change', function() {
-	if (this.value == '0') {
-		$('input[name=\'sub_category\']').prop('disabled', true);
-	} else {
-		$('input[name=\'sub_category\']').prop('disabled', false);
-	}
-});
+            var category_id = $('#content select[name=\'category_id\']').prop('value');
 
-$('select[name=\'category_id\']').trigger('change');
---></script>
+            if (category_id > 0) {
+                url += '&category_id=' + encodeURIComponent(category_id);
+            }
+
+            var sub_category = $('#content input[name=\'sub_category\']:checked').prop('value');
+
+            if (sub_category) {
+                url += '&sub_category=true';
+            }
+
+            var filter_description = $('#content input[name=\'description\']:checked').prop('value');
+
+            if (filter_description) {
+                url += '&description=true';
+            }
+
+            location = url;
+        });
+
+        $('#content input[name=\'search\']').bind('keydown', function (e) {
+            if (e.keyCode == 13) {
+                $('#button-search').trigger('click');
+            }
+        });
+
+        $('select[name=\'category_id\']').on('change', function () {
+            if (this.value == '0') {
+                $('input[name=\'sub_category\']').prop('disabled', true);
+            } else {
+                $('input[name=\'sub_category\']').prop('disabled', false);
+            }
+        });
+
+        $('select[name=\'category_id\']').trigger('change');
+        --></script>
 <?php echo $footer; ?>

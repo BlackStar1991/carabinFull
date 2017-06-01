@@ -65,10 +65,24 @@ class ControllerProductSpecial extends Controller {
 
 		$data['heading_title'] = $this->language->get('heading_title');
 
+///* PRAVKI *////
+
+//       $data['text_model'] = $this->language->get('text_model');
+//        $data['text_stock'] = $this->language->get('text_stock');
+
+
+//        $data['model'] = $product_info['model'];
+
+
+
 		$data['text_empty'] = $this->language->get('text_empty');
 		$data['text_quantity'] = $this->language->get('text_quantity');
 		$data['text_manufacturer'] = $this->language->get('text_manufacturer');
+
+
 		$data['text_model'] = $this->language->get('text_model');
+
+
 		$data['text_price'] = $this->language->get('text_price');
 		$data['text_tax'] = $this->language->get('text_tax');
 		$data['text_points'] = $this->language->get('text_points');
@@ -93,6 +107,11 @@ class ControllerProductSpecial extends Controller {
 			'start' => ($page - 1) * $limit,
 			'limit' => $limit
 		);
+
+
+
+
+
 
 		$product_total = $this->model_catalog_product->getTotalProductSpecials();
 
@@ -133,7 +152,8 @@ class ControllerProductSpecial extends Controller {
 				'product_id'  => $result['product_id'],
 				'thumb'       => $image,
 				'name'        => $result['name'],
-				'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
+                'model'       => $result['model'],
+                'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
 				'price'       => $price,
 				'special'     => $special,
 				'tax'         => $tax,
@@ -142,6 +162,24 @@ class ControllerProductSpecial extends Controller {
 				'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url)
 			);
 		}
+
+
+//        if ($product_info['quantity'] <= 0) {
+//            $data['stock'] = $product_info['stock_status'];
+//        } elseif ($this->config->get('config_stock_display')) {
+//            $data['stock'] = $product_info['quantity'];
+//        } else {
+//            $data['stock'] = $this->language->get('text_instock');
+//        }
+
+		
+
+
+
+
+
+
+
 
 		$url = '';
 

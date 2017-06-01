@@ -1,0 +1,57 @@
+<modification>
+	<name>301 redirect manager</name>
+	<code>301 redirect manager</code>
+	<version>1.0</version>
+	<author>prut.n.v@gmail.com (for-opencart.com)</author>
+	<link><![CDATA[http://for-opencart.com]]></link>
+	<file path="admin/controller/setting/setting.php">
+		<operation error="skip">
+			<search><![CDATA[$data['languages'] = $this->model_localisation_language->getLanguages();]]></search>
+			<add position="before"><![CDATA[
+				if (isset($this->request->post['config_redirects'])) {
+					$data['config_redirects'] = $this->request->post['config_redirects'];
+				} else {
+					$data['config_redirects'] = $this->config->get('config_redirects');
+				}			
+			]]></add>
+		</operation>		
+	</file>
+	<file path="admin/view/template/setting/setting.tpl">
+		<operation error="skip">
+			<search><![CDATA[<div class="tab-pane" id="tab-store">]]></search>
+			<add position="before" offset="1"><![CDATA[
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-config_redirects"><span data-toggle="tooltip" data-container="#tab-general" title="" data-original-title="Вводить в формате:<br>old-url==new-url<br>old-url-2==new-url-22">301 редиректы</span></label>
+                  <div class="col-sm-10">
+                    <textarea name="config_redirects" rows="8" placeholder="old-url==new-url" id="input-config_redirects" class="form-control"><?php echo $config_redirects; ?></textarea>
+                  </div>
+                </div>
+			]]></add>
+		</operation>
+	</file>
+	<file path="catalog/controller/common/header.php"> 
+		<operation error="skip">
+			<search><![CDATA[public function index() {]]></search>
+			<add position="after"><![CDATA[
+				if($this->config->get('config_redirects')){
+					$redirects = array();
+					$redirect_elements = explode(PHP_EOL, $this->config->get('config_redirects'));
+					foreach($redirect_elements as $element){
+						$to = explode("==", $element);	
+						$redirects[$to[0]] = $to[1];		
+					}
+					
+					$server_request = substr($_SERVER["REQUEST_URI"], 1);
+					if($server_request){
+						if(array_key_exists($server_request, $redirects)) {
+							header("HTTP/1.1 301 Moved Permanently"); 
+							$location = HTTP_SERVER. $redirects[$server_request];
+							header("Location: ".$location);
+							exit;
+						}
+					}
+				}
+			]]></add>
+		</operation>		
+	</file>		
+</modification>

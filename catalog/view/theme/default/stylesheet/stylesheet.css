@@ -75,6 +75,10 @@ select.form-control, textarea.form-control, input[type="text"].form-control, inp
     height: 30px;
 }
 
+
+hr{
+    margin: 0;
+}
 /* Fix some bootstrap issues */
 /*span.hidden-xs, span.hidden-sm, span.hidden-md, span.hidden-lg {*/
     /*display: inline;*/
@@ -162,7 +166,7 @@ div.required .control-label:before {
 }
 
 .my_rubrics {
-    margin-top: 1%;
+
     width: 100%;
 }
 
@@ -211,7 +215,6 @@ div.required .control-label:before {
 .companyName {
     position: relative;
     display: block;
-    margin-top: 9.5%;
     padding-left: 30px;
     max-width: 400px;
     z-index: 100;
@@ -243,10 +246,33 @@ div.required .control-label:before {
     text-align: left;
 
 }
+
+.my_header__shoppingCartandRegistration{
+    float: right;
+    position: relative;
+}
+
+
+/* FORM REGISTRATIONNS */
+
+.my_header__formsRegistration{
+    display: inline-block;
+    
+}
+.my_header__formsRegistration a{
+
+}
+.my_header__formsRegistration a:hover{
+    color: #fee900;
+}
+
+
 /* SHOPPING CART*/
 
 .my_header__shopingCart{
-    float: right;
+
+    display: inline-block;
+    margin-left: 10px;
     background-color: #fff;
 
 }
@@ -336,6 +362,7 @@ div.required .control-label:before {
 
 #cart {
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 #cart > .btn {
@@ -428,15 +455,17 @@ div.required .control-label:before {
     position: relative;
     display: block;
     height: 100%;
-    /*padding: 0 21px 4px 0;             !* 0 -> 40px media *!*/
+
     text-transform: uppercase;
+    padding: 15px 18px;
+
     font: bold 17px "Roboto",sans-serif;
     line-height: 20px;
     color: #fff;
     background-color: #2f2a2b;
 }
 
-.navbar-nav>li>a:first-child{
+#menu .my_navigation .nav > li>a:first-child{
 	padding-left: 0;
 }
 
@@ -565,7 +594,8 @@ div.required .control-label:before {
 
     }
 
-    #menu .nav > li > a {
+    #menu .my_navigation .nav > li > a {
+        
         padding-left: 40px;
     }
 
@@ -639,15 +669,32 @@ div.required .control-label:before {
     padding: 0 0 13px 0;
     margin: 0 0 10px;
 }
-
-.tab-content .table-bordered thead td {
+.table-bordered{
     border: none;
+}
+
+.table.table-bordered thead td,
+.tab-content .table-bordered thead  td {
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+
     font-size: 18px;
     padding: 10px;
     text-align: left;
     color: #4d4d4d;
     font-weight: bold;
 }
+
+.my_attribute__title{
+
+    position: relative;
+    margin: 10px 0;
+    font: normal 27px/40px "Roboto Slab",sans-serif;
+    text-align: left;
+    text-transform: uppercase;
+    color: #4d4d4d;
+}
+
 
 .tab-content .table-bordered .my_attribute__element {
     padding: 6px 10px;
@@ -663,7 +710,7 @@ div.required .control-label:before {
     /*width: 200px;*/
     color: #777;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
-    border-left: none;
+    /*border-left: none;*/
     background-color: #f3f3f3;
 }
 
@@ -758,6 +805,7 @@ footer h5 {
 .breadcrumb {
     white-space: nowrap;
     width: 100%;
+    margin-top: 15px;
     background-color: white;
 }
 .breadcrumb li{
@@ -991,10 +1039,12 @@ footer h5 {
 }
 .list-group_addGroup.list-group.list-group_style .list-group-item:hover{
     background-color: #323232;
+    transition: all 300ms;
 }
 .list-group_addGroup.list-group.list-group_style .list-group-item:hover a{
     color: #fee900;
     background-color: #323232;
+    transition: all 300ms;
     text-shadow: none;
     text-decoration: none;
 }
@@ -1008,6 +1058,7 @@ footer h5 {
     display: block;
     width: 100%;
     height: 100%;
+    transition: all 300ms;
 }
 
 .list-group_addGroup.list-group.list-group_style .list-group-item:after{
@@ -1074,6 +1125,7 @@ footer h5 {
 
 .list-group.list-group_style .list-group-item:hover {
     color: #fee900;
+    transition: all 300ms;
     text-shadow: none;
 }
 
@@ -1086,11 +1138,14 @@ footer h5 {
 
 
 .my_transition__title{
+    position: relative;
+    top: 1px;
     display: inline-block;
     font-size: 16px;
     margin-right: 5px;
     padding: 5px 15px;
     border: 1px solid #e5e5e5;
+    background-color: #fff;
     border-bottom: none;
     color: #000;
     margin-bottom: 0;
@@ -1100,25 +1155,27 @@ footer h5 {
 .my_transition__fullList{
     width: 100%;
     border: 1px solid #e5e5e5;
-    min-height:160px;
+    min-height:170px;
 }
 .my_transition__productName{
     /*display: block;*/
     /*margin-bottom: 10px;*/
 }
 
-.my_transition__productName a{
+.caption  h4.my_transition__productName a{
     position: relative;
     display: block;
     overflow: hidden;
     padding: 0;
-
+    margin-bottom: 5px;
     color: #333;
     font-size: 12px;
     font-weight: 700;
     font-family: "Roboto",sans-serif;
     text-align: center;
     transition: all 200ms;
+    text-decoration: none;
+    text-transform: none;
 }
 
 .product-thumb.my_transition__item{
@@ -1126,7 +1183,9 @@ footer h5 {
     float: left;
     max-width: 20%;
     height: 100%;
+    padding: 5px 0;
     border:none;
+
 
 }
 
@@ -1139,7 +1198,8 @@ footer h5 {
 .transition .my_transition__imageBlock{
 
     width: 100px;
-    height: 90px;
+
+
     border: 1px solid #e5e5e5;
     border-radius: 3px;
 
@@ -1273,7 +1333,7 @@ footer h5 {
 
 .product-thumb .caption {
     padding: 0 20px;
-    min-height: 180px;
+    min-height: 130px;
 }
 
 
@@ -1439,25 +1499,43 @@ h2.price {
 
 
 
-.list-unstyled.list-unstyled__aboutPrice .myPrice{
+.list-unstyled h2.myPrice{
 
     padding: 0;
     margin: 10px 0;
-    font-weight: bold;
     font-family: "Roboto", sans-serif;
-    font-size: 22px;
+    font-size: 24px;
+    font-weight: 600;
     line-height: 30px;
 }
 
 
+.wrappenElements  .my_list-unstyled__stock{
+    padding: 10px;
+}
+.my_list-unstyled__stock span{
+    margin-right: 15px;
+    color: #4d4d4d;
+    font-size: 14px;
+    line-height: 16px;
+    font-family: "Roboto", sans-serif;
+}
 
 
 
 
 /* CALLBACK */
 
+
+
+
+
 .my_callback__button{
     /* This class is responsible for modal window */
+
+    margin: 10px 0;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
 }
 
 
@@ -1481,8 +1559,8 @@ h2.price {
     content: '\f095';
     font-family: "FontAwesome";
 
-    margin-left: 10px;
-    font-size: 16px;
+    padding-left: 16px;
+    font-size: 15px;
 
     z-index: 2;
 }
@@ -1588,7 +1666,8 @@ h2.price {
     border-bottom: 1px dotted;
 }
 
-.blockLinks_item:hover {
+.blockLinks_item:hover,
+.blockLinks_item:focus{
     color: #fee900;
 }
 
@@ -1615,11 +1694,22 @@ h2.price {
     width: 100%;
 }
 
-.image-additional a {
+.my_image-additional__slider{
+    overflow: hidden;
+    width: auto;
+    padding-left: 20px;
+    text-align: left;
+    white-space: nowrap;
+    background: #f7f7f7;
+}
 
+.image-additional{
+    float: left;
+}
+
+.image-additional a {
     display: block;
     border: 1px solid #ddd;
-
     line-height: 40px;
     text-align: center;
 }
@@ -1887,20 +1977,29 @@ h2.price {
 
 /* CATEGORY */
 
-.my_categore__name {
+.my_categore__name,
+.my_manufacturer__name{
     font-size: 27px;
-    line-height:40px;
+    /*line-height:40px;*/
     font-family: "Roboto Slab", sans-serif;
     text-align: left;
-    margin: 0 0 20px 0;
+    /*margin: 0 0 20px 0;*/
     position: relative;
     text-transform: uppercase;
 }
 
 .my_categore__description {
     margin: 15px 0;
-    font: 16px "Roboto", sans-serif;
+    line-height: 20px;
+    zoom: 1;
 }
+.my_categore__description p{
+    margin: 0;
+    padding:1px;
+    line-height: 20px;
+    font: 14px "Roboto", sans-serif;
+}
+
 
 .my_categore__allElements {
     margin: 0;
@@ -2029,9 +2128,20 @@ h2.price {
 /*buttons sorter*/
 .my_sorter__group {
     float: right;
+    background-color: transparent;
+    border: none;
     outline: 0;
     outline-offset: 0;
 }
+.btn-group.my_sorter__group button,
+.btn-group.my_sorter__group button:active{
+    background: none;
+    border: none;
+    outline: 0;
+    outline-offset: 0;
+    box-shadow: none;
+}
+
 
 .my_sorter__group button {
     background-color: transparent !important;
@@ -2092,12 +2202,41 @@ h2.price {
     width: 100%;
 }
 
-.my_product-line__data span {
+.my_product-line__data p {
     display: block;
     text-align: center;
     margin: 0 auto;
     font-size: 12px;
 }
+
+.my_product-line__model{
+    font-size: 12px;
+    line-height: 14px;
+    display: block;
+    overflow: hidden;
+    height: 14px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #888;
+}
+
+
+.product-grid .my_product-line__model span{
+    display: inline-block;
+    position: absolute;
+    margin-top:18px;
+    padding-left: 9px;
+    z-index:5;
+}
+.product-list .my_product-line__model span {
+    position: absolute;
+    bottom: 2%;
+    left: 26%;
+    z-index:5;
+}
+
+
+
 
 .my_description_product{
     position: relative;
@@ -2138,13 +2277,16 @@ h2.price {
 
 .my_paginatorBlock .pagination .active {
     /*border: 1px solid #d5d5d5;*/
+    /*margin: -2px 0;*/
 }
 
 .my_paginatorBlock .pagination > .active > span {
     text-decoration: none;
-    margin-top: -2px;
+    line-height: 12px;
     color: #fee900;
     background: #fafafa;
+    border-radius:0;
+    box-sizing: border-box;
     border: 1px solid #d5d5d5;
 }
 
@@ -2312,16 +2454,21 @@ h2.price {
     height: 498px;
     background: url(../image/detals/bottomBg.jpg) left top no-repeat #eae9e9 !important;
     color: #565051;
-    padding-top: 185px;
-    padding-bottom: 22px;
+    /*padding-top: 185px;*/
+    /*padding-bottom: 22px;*/
 
     /*top: -84px;*/
     /*margin-bottom: -84px;*/
     overflow: hidden;
 }
 
-
-
+.block_socialNetworks__link{
+    margin-left: 5px;
+    padding: 0;
+}
+.my_categore_socialNetworks{
+    margin-left: 10px;
+}
 
 
 
@@ -2535,13 +2682,16 @@ h2.price {
     text-align:left;
     height: auto;
 }
-
 .product-list .my_product__callbackButtonDescription{
     width: 300px;
     left: -120%;
 }
 
 
+  .my_product-line__data span{
+    text-align: center;
+      display: block;
+}
 
 
 
@@ -2651,7 +2801,9 @@ h2.price {
     margin: 0;
     border: 0;
 }
-
+.b-delivery-info__item p {
+    margin-bottom: 0;
+}
 
 /* Specials*/
 
@@ -2679,11 +2831,64 @@ h2.price {
     width: 100%;
     text-align: center;
 
-    z-index: 99;
+    z-index: 3;
 }
 
 .product-list .my_special__string,
 .my_thumbnail__block .my_special__string{
     top: auto;
     bottom: 0;
+}
+
+
+
+
+
+
+
+/* About us */
+
+
+.my_aboutUs__content{
+    margin: 15px 0;
+    line-height: 20px;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    zoom: 1;
+}
+.my_aboutUs__content p{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* SIMPLE*/
+
+.my_simplecheckout-cart__text{
+    color: #f00;
+    font-weight:bold;
+    font-family:"Roboto",sans-serif;
+}
+
+.simplecheckout-block-content .radio{
+    display: inline-block;
+}
+
+.simplecheckout-block-content p{
+    display: inline-block;
+    margin-left: 10px;
+    /*display: none;*/
+}
+
+
+.simplecheckout-block-content .radio label{
+    margin-right: 15px;
+}
+
+/*.simplecheckout-block-content .radio label img{*/
+    /*float: left;*/
+/*}*/
+.simplecheckout-block-content .radio label input{
+    position: relative;
 }

@@ -59,6 +59,12 @@
                                     </td>
                                 </tr>
                                 <tr class="my_contact-info__row">
+                                    <td class="my_contact-info__cell my_contact-info__cell_width_200">Время работы:</td>
+                                    <td class="my_contact-info__cell">
+                                        08:00 — 21:00 Пн-Вс
+                                    </td>
+                                </tr>
+                                <tr class="my_contact-info__row">
                                     <td class="my_contact-info__cell my_contact-info__cell_width_200">Email:</td>
                                     <td class="my_contact-info__cell">
                                         karabincom@ukr.net

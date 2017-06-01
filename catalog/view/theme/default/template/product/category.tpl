@@ -18,56 +18,69 @@
             <?php if ($thumb || $description) { ?>
                 <div class="row">
 
-                    <?php if ($thumb) { ?>
+ <!--    удалить               <?php if ($thumb) { ?>
                         <div class="col-sm-2"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>"
                                                    title="<?php echo $heading_title; ?>" class="img-thumbnail"/></div>
                     <?php } ?>
+
+  -->
+
                     <?php if ($description) { ?>
                         <div class="col-sm-12">
-                            <p class="my_categore__description">  <?php echo $description; ?> </p>
+                            <div class="my_categore__description">  <?php echo $description; ?> </div>
                         </div>
                     <?php } ?>
+
+                    <div class="my_categore_socialNetworks">
+                        <a class="block_socialNetworks__link" onclick="require('Metrics').ga.track_event_at('social_links', 'facebook', &quot;&quot;)" target="_blank" title="facebook" href="http://www.facebook.com/share.php?u=https://xn--80aad2agwr.com/"><img src="/image/socButton/facebook_ico.png" alt="facebook"></a>
+                        <a class="block_socialNetworks__link" onclick="require('Metrics').ga.track_event_at('social_links', 'twitter', &quot;&quot;)" target="_blank" title="twitter" href="http://twitter.com/home?status=%D1%81%D0%BD%D0%B0%D1%80%D1%8F%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5+%D0%B4%D0%BB%D1%8F+%D1%8D%D0%BA%D1%81%D1%82%D1%80%D0%B5%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE+%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B0+%D0%B8+%D0%BE%D1%82%D0%B4%D1%8B%D1%85%D0%B0+https%3A%2F%2Fxn--80aad2agwr.com%2F+%23prom_ua"><img src="/image/socButton/twitter_ico.png" alt="twitter"></a>
+                    </div>
+
                 </div>
-                <hr>
-
-
             <?php } ?>
 
 
 
 
             <?php if ($categories) { ?>
-                <h3><?php echo $text_refine; ?></h3>
-                <?php if (count($categories) <= 5) { ?>
+<!--                <h3>--><?php //echo $text_refine; ?><!--</h3>-->
+
+<!--                --><?php //if (count($categories) <= 5) { ?>
+<!--                    <div class="row">-->
+<!--                        <div class="col-xs-12">-->
+<!--                            <ul class="my_categore__allElements clearfix">-->
+<!--                                --><?php //foreach ($categories as $category) { ?>
+<!---->
+<!--                                    <li class="my_categore__element">--><?php //if ($thumb) { ?>
+<!--                                        <a class="my_categore__elementWrapper" href="--><?php //echo $category['href']; ?><!--">-->
+<!---->
+<!--                                            <div class="my_categore__imageBlock">-->
+<!--                                                <img class="my_categore__image" src="--><?php //echo $category['thumb']; ?><!--"-->
+<!--                                                     alt="--><?php //echo $category['name']; ?><!--"/>-->
+<!---->
+<!--                                                <span class="my_categore__quantityElements">--><?php //echo $category['product_total']; ?><!--  </span>-->
+<!--                                            </div>-->
+<!--                                            --><?php //} ?>
+<!--                                            <p class="my_categore__subcategoryName">--><?php //echo $category['name']; ?><!--</p>-->
+<!---->
+<!---->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!---->
+<!--                                --><?php //} ?>
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+                <?php { ?>
+
+
+
+
+
                     <div class="row">
-                        <div class="col-xs-12">
-                            <ul class="my_categore__allElements clearfix">
-                                <?php foreach ($categories as $category) { ?>
 
-                                    <li class="my_categore__element"><?php if ($thumb) { ?>
-                                        <a class="my_categore__elementWrapper" href="<?php echo $category['href']; ?>">
-
-                                            <div class="my_categore__imageBlock">
-                                                <img class="my_categore__image" src="<?php echo $category['thumb']; ?>"
-                                                     alt="<?php echo $category['name']; ?>"/>
-
-                                                <span class="my_categore__quantityElements"><?php echo $category['product_total']; ?>  </span>
-                                            </div>
-                                            <?php } ?>
-                                            <p class="my_categore__subcategoryName"><?php echo $category['name']; ?></p>
-
-
-                                        </a>
-                                    </li>
-
-                                <?php } ?>
-                            </ul>
-                        </div>
-                    </div>
-                <?php } else { ?>
-                    <div class="row">
-                        <?php foreach (array_chunk($categories, ceil(count($categories) / 4)) as $categories) { ?>
-                            <div class="col-sm-3">
+                            <div class="col-xs-12">
                                 <ul class="my_categore__allElements clearfix">
                                     <?php foreach ($categories as $category) { ?>
                                         <li class="my_categore__element">
@@ -88,7 +101,7 @@
                                     <?php } ?>
                                 </ul>
                             </div>
-                        <?php } ?>
+
                     </div>
                 <?php } ?>
             <?php } ?>
@@ -143,6 +156,15 @@
                     <?php foreach ($products as $product) { ?>
                         <div class="product-layout product-list col-xs-12">
                             <div class="product-thumb">
+                                <div class="my_product-line__model">
+                                    <span>
+                                        <?php if ($product['model']) { ?>
+                                            <?php echo $text_model; ?><?php echo $product['model']; ?>
+                                        <?php } ?>
+                                    </span>
+                                </div>
+
+
                                 <div class="image my_product clearfix">
                                     <a class="my_product__imageWrappen" href="<?php echo $product['href']; ?>">
                                         <img src="<?php echo $product['thumb']; ?>"
@@ -154,17 +176,19 @@
 
                                     <div class="my_product__contactButtons">
 
-                                        <button class="my_product__buyLink"
-                                                onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');">
+                                        <button class="my_product__buyLink" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');">
                                             <span class="hidden-xs my_product__buyButton"><?php echo $button_cart; ?></span>
                                         </button>
 
-                                        <button class="my_product__callbackLink" href="#">
-                                            <span class="my_product__callbackButton my_callback__button"></span>
+                                        <button class="my_product__callbackLink" data-toggle="modal" data-target="#callbackModal" >
+                                            <span class="my_product__callbackButton my_callback__button" ></span>
                                             <p class="my_product__callbackButtonDescription">
                                                 <span>Оставьте свой номер телефона и представитель компании свяжется с вами</span>
                                             </p>
                                         </button>
+
+										
+										
                                     </div>
 
 
@@ -197,8 +221,8 @@
                                             </p>
                                         <?php } ?>
 
-                                        <div class="my_product-line__data">            <!-- вставить модуль проверки на наличие товара -->
-                                            <span>В наличии</span>
+                                        <div class="my_product-line__data">
+                                            <span><?php echo $product['stock']; ?></span>
                                         </div>
 
                                     </div>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <code>edit-23092015</code>
+    <name>Search_Quick/Live_Opencart_2x</name>
+    <version>1.0 (for Opencart 2.x)</version>
+    <author>OpenCart.su (opencartsu@mail.ru)</author>
+    <link>http://opencart.su</link>
+    <file path="catalog/view/theme/*/template/common/header.tpl">
+        <operation>
+            <search trim="true" index="0"><![CDATA[
+		    </head>
+            ]]></search>
+            <add position="before" trim="false" offset="0"><![CDATA[
+             <!-- add jquery.ui.min if not exist -->
+             <script>window.jQuery.ui || document.write('<script src="catalog/view/javascript/jquery/ui/jquery-ui-1.11.4.min.js"><\/script>');
+             $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'catalog/view/javascript/jquery/ui/themes/base/jquery-ui-1.11.4.min.css') );</script>
+
+              <!-- add autocomplete if not exist -->
+             <script>jQuery.fn.autocomplete || document.write('<script src="catalog/view/javascript/jquery/ui/jquery-ui-1.11.4.min.js"><\/script>');
+             $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'catalog/view/javascript/jquery/ui/themes/base/jquery-ui-1.11.4.min.css') );</script>
+
+             <!-- add quick search -->
+             <link rel="stylesheet" type="text/css" href="catalog/view/javascript/style_search_quick_opencartsu.css"/>
+             <script src="catalog/view/javascript/search_quick_opencartsu.js"></script>
+            ]]></add>
+        </operation>
+    </file>
+</modification>

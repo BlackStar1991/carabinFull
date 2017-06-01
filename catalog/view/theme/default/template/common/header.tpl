@@ -39,6 +39,9 @@
     <link href="catalog/view/javascript/fontello/css/fontello-codes.css" rel="stylesheet" type="text/css"/>
     <link href="catalog/view/javascript/fontello/css/fontello-embedded.css" rel="stylesheet" type="text/css"/>
 
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css">-->
+<!--    <script href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>-->
 
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css"/>
     <link href="//fonts.googleapis.com/css?family=Roboto:400,400i,300,700" rel="stylesheet" type="text/css"/>
@@ -118,7 +121,12 @@
 <header>
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
+
+
+
+
+
+            <div class="col-xs-12 col-sm-6">
                 <nav class="my_rubrics">                                 <!---  СЮДА НУЖЕН СКРИПТ  --->
                     <a href="#" class="my_rubrics__news">
                         Новости
@@ -130,10 +138,8 @@
                         Отзывы
                     </a>
                 </nav>
-            </div>
 
 
-            <div class="col-xs-12 col-sm-6">
                 <div class="header_logoBox">
                     <div class="companyName">
                         <a href="/">                 <!--- class="companyName_wrapper" -->
@@ -160,16 +166,27 @@
             </div>
             <div class="col-xs-12 col-sm-6">
 
-                <div class="my_header__shopingCart">
-<!--                    <a href="--><?php //echo $shopping_cart; ?><!--" title="-->
-<!--                        --><?php //echo $text_shopping_cart; ?><!--">-->
-<!--                        <span class="hidden-xs">-->
-<!--                        --><?php //echo $text_shopping_cart; ?><!--</span>-->
-<!--                        <i class="fa fa-shopping-cart"></i>-->
-<!---->
-<!--                    </a>-->
-                    <?php echo $cart; ?>
+                <div class="my_header__shoppingCartandRegistration">
+                    <div class="my_header__formsRegistration">
+                        <a href="/login">Войти</a> / <a href="/simpleregister">Зарегистрироваться</a>
+                    </div>
+                    <div class="my_header__shopingCart">
+                        <!--                    <a href="--><?php //echo $shopping_cart; ?><!--" title="-->
+                        <!--                        --><?php //echo $text_shopping_cart; ?><!--">-->
+                        <!--                        <span class="hidden-xs">-->
+                        <!--                        --><?php //echo $text_shopping_cart; ?><!--</span>-->
+                        <!--                        <i class="fa fa-shopping-cart"></i>-->
+                        <!---->
+                        <!--                    </a>-->
+                        <?php echo $cart; ?>
+                    </div>
                 </div>
+
+
+
+
+
+
 
                 <?php echo $search; ?>
             </div>
@@ -206,14 +223,14 @@
                                                 <ul class="list-unstyled">
                                                     <?php foreach ($children as $child) { ?>
                                                         <li>
-                                                            <a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
+                                                            <a href="<?php echo $child['href']; ?>"> <?php echo $child['name']; ?></a>
                                                         </li>
                                                     <?php } ?>
                                                 </ul>
                                             <?php } ?>
                                         </div>
                                         <a href="<?php echo $category['href']; ?>"
-                                           class="see-all"><?php echo $text_all; ?><?php echo $category['name']; ?></a>
+                                           class="see-all"><?php echo $text_all; ?> <?php echo $category['name']; ?></a>
                                     </div>
                                 </li>
 

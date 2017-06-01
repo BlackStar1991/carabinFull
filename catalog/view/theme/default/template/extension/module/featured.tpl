@@ -60,7 +60,10 @@
                                 <?php } ?>
 
                                 <div class="my_product-line__data">            <!-- вставить модуль -->
-                                    <span>В наличии</span>
+                                     <span><?php echo $product['stock']; ?></span>
+									 <?php if ($product['model']) { ?>
+											<?php echo $text_model; ?><?php echo $product['model']; ?>
+									  <?php } ?>
                                 </div>
 
 

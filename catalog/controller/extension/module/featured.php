@@ -6,6 +6,7 @@ class ControllerExtensionModuleFeatured extends Controller {
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['text_tax'] = $this->language->get('text_tax');
+		$data['text_model'] = $this->language->get('text_model');
 
 		$data['button_cart'] = $this->language->get('button_cart');
 		$data['button_wishlist'] = $this->language->get('button_wishlist');
@@ -57,14 +58,28 @@ class ControllerExtensionModuleFeatured extends Controller {
 					} else {
 						$rating = false;
 					}
+					
+					
+				if ($product_info['quantity'] <= 0) {
+					$stock = $this->language->get('text_outstock');
+				} elseif ($this->config->get('config_stock_display')) {
+					$stock = $product_info['quantity'];
+				} elseif ($product_info['quantity'] >= 1 AND $product_info['quantity'] <= 3) {
+					$stock = $this->language->get('text_minstock');
+				} else {
+					$stock = $this->language->get('text_instock');
+				}
+				
 
 					$data['products'][] = array(
 						'product_id'  => $product_info['product_id'],
 						'thumb'       => $image,
 						'name'        => $product_info['name'],
+						'model'        => $product_info['model'],
 						'description' => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
 						'price'       => $price,
 						'special'     => $special,
+						'stock'       => $stock,
 						'tax'         => $tax,
 						'rating'      => $rating,
 						'href'        => $this->url->link('product/product', 'product_id=' . $product_info['product_id'])

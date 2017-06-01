@@ -75,7 +75,6 @@
                                         <a class="my_product__imageWrappen" href="<?php echo $product['href']; ?>">
 
 
-
                                             <img src="<?php echo $product['thumb']; ?>"
                                                  alt="<?php echo $product['name']; ?>"
                                                  title="<?php echo $product['name']; ?>"
@@ -129,8 +128,17 @@
 
                                         <div class="my_product-line__data">
 
-                                            <span>В наличии</span>
-                                 <!--           <?php echo $text_stock; ?> <?php echo $stock; ?>   -->   <!-- вставить модуль проверки на наличие товара заставить это работать -->
+                                            <span>
+                                        <?php if ($product['model']) { ?>
+                                            <?php echo $text_model; ?><?php echo $product['model']; ?>
+                                        <?php } ?>
+                                    </span>
+
+                                            <!--                                            <span>-->
+                                            <?php //echo $text_stock; ?><!-- -->
+                                            <?php //echo $stock; ?><!--</span>               <!-- вставить модуль проверки на наличие товара заставить это работать -->
+
+
                                         </div>
 
                                     </div>
@@ -148,6 +156,8 @@
                             </div>
                         <?php } ?>
                     </div>
+
+
                     <div class="row">
 
 
