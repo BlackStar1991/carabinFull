@@ -68,12 +68,25 @@
 
 </footer>
 
-    <div id="callbackModal" class="modal " role="dialog">
-        <div class="modal-dialog">
-				<h3><span class="glyphicon glyphicon-phone"></span>Заказать звонок</h3>
-				   <input type="text" name="telephone" value="" placeholder="050 333 33 33"
-						   id="input-payment-telephone" class="form-control">
-        </div>
+ <div id="callbackModal" class="modal " role="dialog">
+       <button type="button" class="close my_button_close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3><span class="glyphicon glyphicon-phone"></span>Заказ обратного звонка</h3>
+            <div class="input-group">
+                <input type="text" name="telephone" value=""
+                       placeholder="Ваш номер телефона"
+                       id="input-payment-telephone" class="form-control">
+                <input type="hidden" name="product_id" rel="product_id" value="">
+                <span class="input-group-btn">
+                    <button type="submit" id="button-oneclick"
+                            class="btn btn-primary">text_one_click_button</button>
+                </span>
+            </div>
+            <span class="help-block">help</span>
     </div>
+	<style>
+	div#callbackModal.hide.in {
+    display: block !important;
+}
+	</style>
 
 </body></html>

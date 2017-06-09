@@ -803,3 +803,8 @@
     display: inline-block !important;
     margin-right: 10px;
 }
+
+/* Фиксы */
+.form-horizontal .control-label {
+	text-align:left;
+}

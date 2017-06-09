@@ -229,6 +229,12 @@ class ControllerProductProduct extends Controller {
 			$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/locale/'.$this->session->data['language'].'.js');
 			$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
 			$this->document->addStyle('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
+            $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+            $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.theme.css');
+
+            $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+
+
 
 			if ($product_info['meta_h1']) {
 				$data['heading_title'] = $product_info['meta_h1'];
@@ -320,6 +326,8 @@ class ControllerProductProduct extends Controller {
 					'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_additional_width'), $this->config->get($this->config->get('config_theme') . '_image_additional_height'))
 				);
 			}
+			$data['images_count'] = count($results);
+			
 
 			if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
 				$data['price'] = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
@@ -712,5 +720,6 @@ class ControllerProductProduct extends Controller {
 
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
-	}
+
+    }
 }

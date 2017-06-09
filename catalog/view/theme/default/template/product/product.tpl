@@ -1,6 +1,6 @@
 <?php echo $header; ?>
 <div class="container">
-    <ul class="breadcrumb">
+    <ul class="breadcrumb clearfix">
         <?php foreach ($breadcrumbs as $breadcrumb) { ?>
             <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
         <?php } ?>
@@ -35,36 +35,51 @@
                                                 alt="<?php echo $heading_title; ?>"/>
 
 
-                                        <?php if ($special) { ?>  <span class="my_special__string">Распродажа</span> <?php } ?>
+                                        <?php if ($special) { ?>  <span
+                                                class="my_special__string">Распродажа</span> <?php } ?>
                                     </a>
-
 
 
                                 </li>
                             <?php } ?>
-                            <?php if ($images) { ?>
+                           <?php if ($images) { ?>
 
-                                <ul class="my_image-additional__slider ">   <!-- owl-carousel -->
-                                <?php foreach ($images as $image) { ?>
+								<?php if ($images_count > 3) { ?>                               
+									 <ul class="my_image-additional__slider ">   <!-- owl-carousel class-     owl-item-->
+                                        <?php foreach ($images as $image) { ?>
 
-                                    <li class="image-additional owl-item">
+                                            <li class="image-additional">
+                                                <a class="thumbnail"
+                                                   href="<?php echo $image['popup']; ?>"
+                                                   title="<?php echo $heading_title; ?>">
+                                                    <img
+                                                            src="<?php echo $image['thumb']; ?>"
+                                                            title="<?php echo $heading_title; ?>"
+                                                            alt="<?php echo $heading_title; ?>"/>
+                                                </a>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                            <?php } else { ?>                                                    <!-- здесь от 0 до 3  -->
+                                     <ul class="my_image-additional__fild">
+                                        <?php foreach ($images as $image) { ?>
+                                            <li class="image-additional">
+                                                <a class="thumbnail"
+                                                   href="<?php echo $image['popup']; ?>"
+                                                   title="<?php echo $heading_title; ?>">
+                                                    <img
+                                                            src="<?php echo $image['thumb']; ?>"
+                                                            title="<?php echo $heading_title; ?>"
+                                                            alt="<?php echo $heading_title; ?>"/>
+                                                </a>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
 
-                                        <a class="thumbnail"
-                                                                    href="<?php echo $image['popup']; ?>"
-                                                                    title="<?php echo $heading_title; ?>">
-                                            <img
-                                                    src="<?php echo $image['thumb']; ?>"
-                                                    title="<?php echo $heading_title; ?>"
-                                                    alt="<?php echo $heading_title; ?>"/>
-
-                                        </a>
-
-                                    </li>
-
-                                <?php } ?>
+                                <?php } ?>    
+								
 
 
-                                </ul>
                             <?php } ?>
                         </ul>
                     <?php } ?>
@@ -75,11 +90,12 @@
                     <div class="wrappenElements">
                         <div class="list-unstyled my_list-unstyled__stock">
                             <span><?php echo $stock; ?></span>
-                            <span><?php echo $text_model; ?> <?php echo $model; ?></span>
+                                                                                                   <!--- Добавить проверку на наличие модели у данного товара  --->
+                            <?php if ($model) { ?>
+                                <span><?php echo $text_model; ?> <?php echo $model; ?></span>
+                            <?php } ?>
                         </div>
                         <hr>
-
-
 
 
                         <?php if ($price) { ?>
@@ -397,10 +413,10 @@
                                                    id="input-quantity" class="form-control hidden"/>
                                             <input type="hidden" name="product_id" value="
                                                     <?php echo $product_id; ?>"/>
-                                            <br/>
 
-
-                                            <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn my_product__buyButton"><?php echo $button_cart; ?></button>
+                                            <button type="button" id="button-cart"
+                                                    data-loading-text="<?php echo $text_loading; ?>"
+                                                    class="btn my_product__buyButton"><?php echo $button_cart; ?></button>
                                         </div>
                                         <?php if ($minimum > 1) { ?>
                                             <div class="alert alert-info"><i
@@ -433,7 +449,8 @@
                                 <li>
                                     <div class="blockLinks">
                                         <div class="blockLinks_wrappen">
-                                            <a class="blockLinks_item" href="/delivery" target="_blank">Условия доставки</a>
+                                            <a class="blockLinks_item" href="/delivery"
+                                               target="_blank">Условия доставки</a>
                                             <a class="blockLinks_item" href="#">График работы</a>
                                             <a class="blockLinks_item" href="#">Адрес и контакты</a>
                                             <a class="blockLinks_item" href="#">Условия возврата и обмена</a>
@@ -503,10 +520,10 @@
                     <div class="col-sm-12">
                         <!-- TABS -->
 
-                        <div >
-							<div class="description">
+                        <div>
+                            <div class="description">
                                 <?php echo $description; ?>
-							</div>
+                            </div>
                             <?php if ($attribute_groups) { ?>
 
                                 <div class="my_attribute__title">
@@ -593,16 +610,17 @@
                         <!--   TRANSITION -->
                         <?php if ($products) { ?>
                         <h3 class="my_transition__title"><?php echo $text_related; ?></h3>
-                        <div class="my_transition__fullList">
+                        <div class="my_transition__fullList clearfix">
                             <?php $i = 0; ?>
                             <?php foreach ($products as $product) { ?>
+
                             <?php if ($column_left && $column_right) { ?>
                                 <?php $class = 'col-xs-8 col-sm-8'; ?>
                             <?php } else { ?>
-                                <?php $class = 'col-xs-12 col-sm-12'; ?>
+                                <?php $class = 'col-xs-6 col-sm-12 pull-left'; ?>
                             <?php } ?>
                             <div <?php echo $class; ?>">
-                            <div class="product-thumb transition my_transition__item">
+                            <div class="product-thumb transition my_transition__item pull-left">
                                 <div class="image my_transition__imageBlock"><a
                                             href="<?php echo $product['href']; ?>"><img
                                                 src="<?php echo $product['thumb']; ?>"
@@ -670,9 +688,9 @@
                     <?php if (($column_left && $column_right) && (($i + 1) % 2 == 0)) { ?>
                         <div class="clearfix visible-md visible-sm"></div>
                     <?php } elseif (($column_left || $column_right) && (($i + 1) % 3 == 0)) { ?>
-                        <div class="clearfix visible-md"></div>
+                        <div class="visible-md"></div>
                     <?php } elseif (($i + 1) % 4 == 0) { ?>
-                        <div class="clearfix visible-md"></div>
+                        <div class="visible-md"></div>
                     <?php } ?>
                     <?php $i++; ?>
                     <?php } ?>
@@ -699,27 +717,36 @@
 </div>
 
 <script type="text/javascript">
+    //        SLIDER FOR  image-additional
+    window.onload = function(){
 
-//    window.onload = function(){
-//
-//        function additionalSlider() {
-//              var slider = $(".my_image-additional__slider");
-//            var itemSlider = $(".image-additional");
-//
-//            slider.on("click", function(){
-//                console.log("OK")
-//            });
-//
-//            slider.owlCarousel({
-//                loop: true,
-//                responsiveClass:true
-//            });
-//
-//        }additionalSlider();
-//    }
+        function additionalSlider() {
+            var slider = $(".my_image-additional__slider");
+            var itemSlider = $(".image-additional");
+
+            slider.owlCarousel({
+                items: 3,
+                navigation:true,
+                margin:5,
+                dots: false,
+                pagination:false,
+                loop: true,
+                responsiveClass:true,
+                responsive:{
+                    991:{
+                        items: 10
+                    },
+                    320:{
+                        items: 10
+                    }
+                }
+            });
+
+        }
+        additionalSlider();
+    }
 
 </script>
-
 
 
 <script type="text/javascript"><!--
@@ -916,6 +943,9 @@
         });
     });
 
+
+
+
     $(document).ready(function () {
         var hash = window.location.hash;
         if (hash) {
@@ -973,5 +1003,9 @@
         });
     });
 </script>
+
+
+
+
 
 <?php echo $footer; ?>

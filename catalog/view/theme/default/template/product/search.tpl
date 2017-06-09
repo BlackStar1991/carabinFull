@@ -194,7 +194,7 @@
 
                                             <button class="my_product__buyLink"
                                                     onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');">
-                                                <span class="hidden-xs my_product__buyButton"><?php echo $button_cart; ?></span>
+                                                <span class="my_product__buyButton"><?php echo $button_cart; ?></span>
                                             </button>
 
                                             <button class="my_product__callbackLink" href="#">

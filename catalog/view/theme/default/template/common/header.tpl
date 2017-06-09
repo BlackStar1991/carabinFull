@@ -39,10 +39,6 @@
     <link href="catalog/view/javascript/fontello/css/fontello-codes.css" rel="stylesheet" type="text/css"/>
     <link href="catalog/view/javascript/fontello/css/fontello-embedded.css" rel="stylesheet" type="text/css"/>
 
-<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">-->
-<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css">-->
-<!--    <script href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>-->
-
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css"/>
     <link href="//fonts.googleapis.com/css?family=Roboto:400,400i,300,700" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
@@ -77,9 +73,8 @@
 <?php //echo $telephone; ?><!--</span></li>-->
 <!--                <li class="dropdown"><a href="--><?php //echo $account; ?><!--" title="-->
 <?php //echo $text_account; ?><!--"-->
-<!--                                        class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span-->
-<!--                                class="hidden-xs hidden-sm hidden-md">-->
-<?php //echo $text_account; ?><!--</span> <span-->
+<!--<  class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md">-->
+<?php //echo $text_account; ?> <!--</span> <span-->
 <!--                                class="caret"></span></a>-->
 <!--                    <ul class="dropdown-menu dropdown-menu-right">-->
 <!--                        --><?php //if ($logged) { ?>
@@ -121,9 +116,6 @@
 <header>
     <div class="container">
         <div class="row">
-
-
-
 
 
             <div class="col-xs-12 col-sm-6">
@@ -168,33 +160,32 @@
 
                 <div class="my_header__shoppingCartandRegistration">
                     <div class="my_header__formsRegistration">
-                        <a href="/login">Войти</a> / <a href="/simpleregister">Зарегистрироваться</a>
+
+                        <?php if ($logged) { ?>
+                            <span><a href="<?php echo $account; ?>"><i class="fa fa-user"></i>  <?php echo $text_account; ?> </a></span> /
+                            <span><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></span>
+                        <?php } else { ?>
+                            <a href="<?php echo $login; ?>"><?php echo $text_login; ?></a> / <a href="<?php echo $register; ?>"><?php echo $text_register; ?></a>
+                        <?php } ?>
+
+
+
+
                     </div>
                     <div class="my_header__shopingCart">
-                        <!--                    <a href="--><?php //echo $shopping_cart; ?><!--" title="-->
-                        <!--                        --><?php //echo $text_shopping_cart; ?><!--">-->
-                        <!--                        <span class="hidden-xs">-->
-                        <!--                        --><?php //echo $text_shopping_cart; ?><!--</span>-->
-                        <!--                        <i class="fa fa-shopping-cart"></i>-->
-                        <!---->
-                        <!--                    </a>-->
                         <?php echo $cart; ?>
                     </div>
                 </div>
 
 
-
-
-
-
-
                 <?php echo $search; ?>
             </div>
-
-
-            <!--            <div class="col-sm-3">--><?php //echo $cart; ?><!--</div>-->
         </div>
     </div>
+
+
+
+
 </header>
 
 
@@ -210,13 +201,13 @@
 
                     <ul class="nav navbar-nav">
 
-                        <li><a class="menu_item__active" href="/"> Главная </a > </li>
+                        <li><a class="menu_item__navigation" href="/"> Главная </a></li>
 
 
                         <?php foreach ($categories as $category) { ?>
                             <?php if ($category['children']) { ?>
                                 <li class="dropdown"><a href="<?php echo $category['href']; ?>"
-                                                        class="dropdown-toggle"><?php echo $category['name']; ?></a>
+                                                        class="menu_item__navigation dropdown-toggle"><?php echo $category['name']; ?></a>
                                     <div class="dropdown-menu">
                                         <div class="dropdown-inner">
                                             <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
@@ -230,28 +221,51 @@
                                             <?php } ?>
                                         </div>
                                         <a href="<?php echo $category['href']; ?>"
-                                           class="see-all"><?php echo $text_all; ?> <?php echo $category['name']; ?></a>
+                                           class="menu_item__navigation see-all"><?php echo $text_all; ?> <?php echo $category['name']; ?></a>
                                     </div>
                                 </li>
 
 
-
-
-
                             <?php } else { ?>
-                                <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+                                <li><a class="menu_item__navigation" href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
 
 
                             <?php } ?>
 
                         <?php } ?>
-                        <li><a  href="contact-us"> КОНТАКТЫ </a ></li>
-                        <li><a  href="delivery"> Доставка и оплата</a ></li>
-                        <li><a  href="specials"> Распродажа </a > </li>
+                        <li><a class="menu_item__navigation" href="contact-us"> КОНТАКТЫ </a></li>
+                        <li><a class="menu_item__navigation" href="delivery"> Доставка и оплата</a></li>
+                        <li><a class="menu_item__navigation" href="specials"> Распродажа </a></li>
                     </ul>
+
+
 
                 </div>
             </nav>
         </div>
     </div>
+    <script>
+        function highlight(){
+
+            window.onload = function () {
+                console.log("OK");
+
+                var allItemsMenu = $("#menu .my_navigation .nav > li > a ");
+
+                var url = document.location.href;
+                $.each(allItemsMenu, function () {
+                    if (this.href == url) {
+                        $(this).addClass('menu_item__active');
+                    }
+
+                });
+
+            }
+        }
+    </script>
+
+
+
+    <script language="JavaScript" type="text/javascript">highlight()</script>
+
 <?php } ?>

@@ -128,16 +128,6 @@
                     </div>
 
 
-                    <!--Compare items-->
-                    <!--        <div class="col-md-3 col-sm-6">-->
-                    <!--          <div class="form-group">-->
-                    <!--            <a href="-->
-                    <?php //echo $compare; ?><!--" id="compare-total" class="btn btn-link">-->
-                    <?php //echo $text_compare; ?><!--</a>-->
-                    <!--          </div>-->
-                    <!--        </div>-->
-
-
                     <!--Buttons sorter-->
                     <div class="col-sm-6 hidden-xs">
                         <div class="btn-group btn-group-sm my_sorter__group">
@@ -159,7 +149,7 @@
                                 <div class="my_product-line__model">
                                     <span>
                                         <?php if ($product['model']) { ?>
-                                            <?php echo $text_model; ?><?php echo $product['model']; ?>
+                                            <?php echo $text_model; ?> <?php echo $product['model']; ?>
                                         <?php } ?>
                                     </span>
                                 </div>
@@ -177,7 +167,7 @@
                                     <div class="my_product__contactButtons">
 
                                         <button class="my_product__buyLink" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');">
-                                            <span class="hidden-xs my_product__buyButton"><?php echo $button_cart; ?></span>
+                                            <span class="my_product__buyButton"><?php echo $button_cart; ?></span>
                                         </button>
 
                                         <button class="my_product__callbackLink" data-toggle="modal" data-target="#callbackModal" >
@@ -226,14 +216,6 @@
                                         </div>
 
                                     </div>
-
-                                    <!--                                    <div class="button-group">-->
-                                    <!--         <button class="my_cart__button" type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md my_cart__textNearButton"><?php echo $button_cart; ?></span></button>
-             <button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>
-                <button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>   -->
-                                    <!--                                    </div>-->
-
-
 
                             </div>
                         </div>

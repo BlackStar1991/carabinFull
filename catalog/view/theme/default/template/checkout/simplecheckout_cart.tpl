@@ -137,11 +137,16 @@
     </div>
 <?php } ?>
 
-    <div class="simplecheckout-cart-total">
+ <div class="simplecheckout-cart-total">
 
         <p class="my_simplecheckout-cart__text"><sup>*</sup>Услуги транспортной компании оплачиваються отдельно, согласно тарифам перевозчика</p>
     </div>
-
+<script>
+$( "#pickup.pickup")is(":checked")(function() {
+  $( ".my_simplecheckout-cart__text hide " ).hide( "slow", function() {
+  });
+});
+</script>
 
 
 

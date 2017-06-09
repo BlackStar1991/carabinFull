@@ -25,3 +25,7 @@ $_['text_rating_desc']  = 'По рейтингу (убыванию)';
 $_['text_model_asc']    = 'По модели (A - Z)';
 $_['text_model_desc']   = 'По модели (Z - A)';
 $_['text_limit']        = 'Показывать:';
+$_['text_stock']        = 'Доступность:';
+$_['text_instock']      = 'На складе';
+$_['text_outstock']     = 'Нет в наличии';
+$_['text_minstock']     = 'На складе';
